@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tushar Joshi | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1>Tushar P. Joshi</h1>
+            <p>Psychology graduate with a unique combination of hands-on behavioural research experience and a talent for Al-driven innovation. I have a proven ability to leverage generative Al to independently build and deploy technology-driven solutions from concept to completion, without a formal coding background.</p>
+            <div class="hero-buttons">
+                <!-- IMPORTANT: Replace "#" with the link to your PDF resume when you have it ready -->
+                <a href="#" class="btn btn-primary">Resume</a>
+                <a href="https://linkedin.com/in/joshi091204" target="_blank" class="btn btn-secondary">LinkedIn</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="content-rows">
+        <!-- WORK EXPERIENCE ROW -->
+        <section class="row">
+            <h2>Work Experience</h2>
+            <div class="carousel">
+                <div class="card" data-id="gsa"><img src="images/gsa-thumbnail.jpg" alt="Google Student Ambassador"></div>
+                <div class="card" data-id="ucb"><img src="images/ucb-thumbnail.jpg" alt="UC Berkeley Research Assistant"></div>
+                <div class="card" data-id="sambhav"><img src="images/sambhav-thumbnail.jpg" alt="Sambhav Initiative Volunteer Intern"></div>
+                <div class="card" data-id="msu_ra"><img src="images/msu-ra-thumbnail.jpg" alt="MSU Research Assistant"></div>
+            </div>
+        </section>
+
+        <!-- AI-DRIVEN PROJECTS ROW -->
+        <section class="row">
+            <h2>AI-Driven Projects</h2>
+            <div class="carousel">
+                <div class="card" data-id="yoga"><img src="images/yoga-tool.jpg" alt="Dynamic Yoga MCQ Study Tool"></div>
+                <div class="card" data-id="workshop"><img src="images/workshop-page.jpg" alt="AI-Powered Psychology Workshop Webpage"></div>
+                <div class="card" data-id="notes"><img src="images/notes-page.jpg" alt="Incentivized Study Notes Webpages"></div>
+            </div>
+        </section>
+
+        <!-- CERTIFICATIONS ROW -->
+        <section class="row">
+            <h2>Certifications</h2>
+            <div class="carousel">
+                <div class="card" data-id="mckinsey"><img src="images/mckinsey-cert.jpg" alt="McKinsey Forward Program"></div>
+                <div class="card" data-id="forage"><img src="images/forage-cert.jpg" alt="Forage Virtual Experience Programs"></div>
+                <div class="card" data-id="hp"><img src="images/hp-cert.jpg" alt="Effective Leadership | HP Life"></div>
+                <div class="card" data-id="citi"><img src="images/citi-cert.jpg" alt="CITI Program Certifications"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- THE MODAL (POP-UP) - This is hidden for now -->
+    <div id="modal" class="modal-container">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
