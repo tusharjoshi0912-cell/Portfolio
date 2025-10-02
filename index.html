@@ -4,64 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tushar Joshi | Portfolio</title>
+    <!-- Bebas Neue Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="hero-section">
-        <div class="hero-content">
-            <h1>Tushar P. Joshi</h1>
-            <p>Psychology graduate with a unique combination of hands-on behavioural research experience and a talent for Al-driven innovation. I have a proven ability to leverage generative Al to independently build and deploy technology-driven solutions from concept to completion, without a formal coding background.</p>
-            <div class="hero-buttons">
-                <!-- IMPORTANT: Replace "#" with the link to your PDF resume when you have it ready -->
-                <a href="#" class="btn btn-primary">Resume</a>
-                <a href="https://linkedin.com/in/joshi091204" target="_blank" class="btn btn-secondary">LinkedIn</a>
-            </div>
+
+    <nav class="main-nav">
+        <div class="nav-left">
+            <a href="#" class="logo" id="logo-link">Tushar Joshi</a>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link active" id="home-link">Home</a></li>
+                <li><a href="#" class="nav-link" id="education-link">Education</a></li>
+                <li><a href="#" class="nav-link" id="skills-link">Skills</a></li>
+                <li><a href="mailto:tusharjoshi0912@gmail.com" class="nav-link">About</a></li>
+            </ul>
         </div>
-    </header>
-
-    <main class="content-rows">
-        <!-- WORK EXPERIENCE ROW -->
-        <section class="row">
-            <h2>Work Experience</h2>
-            <div class="carousel">
-                <div class="card" data-id="gsa"><img src="images/gsa-thumbnail.jpg" alt="Google Student Ambassador"></div>
-                <div class="card" data-id="ucb"><img src="images/ucb-thumbnail.jpg" alt="UC Berkeley Research Assistant"></div>
-                <div class="card" data-id="sambhav"><img src="images/sambhav-thumbnail.jpg" alt="Sambhav Initiative Volunteer Intern"></div>
-                <div class="card" data-id="msu_ra"><img src="images/msu-ra-thumbnail.jpg" alt="MSU Research Assistant"></div>
+        <div class="nav-right">
+             <a href="https://www.linkedin.com/in/joshi091204/" target="_blank" class="profile-icon">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
+    </nav>
+    
+    <main id="main-content">
+        <header class="hero-section">
+            <div class="hero-content">
+                <h1>Tushar P. Joshi</h1>
+                <p>A strategic and resourceful Psychology graduate who bridges the gap between human behavior and technology. Specializes in identifying user needs and engineering innovative, AI-driven solutions from concept to deployment. Proven experience as a Google Student Ambassador includes successfully designing and launching gamified platforms that drive user acquisition and engagement, demonstrating a strong aptitude for product strategy, prompt engineering, and rapid prototyping.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary"><i class="fas fa-play"></i> Resume</a>
+                    <a href="https://linkedin.com/in/joshi091204" target="_blank" class="btn btn-linkedin"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                </div>
             </div>
-        </section>
+        </header>
 
-        <!-- AI-DRIVEN PROJECTS ROW -->
-        <section class="row">
-            <h2>AI-Driven Projects</h2>
-            <div class="carousel">
-                <div class="card" data-id="yoga"><img src="images/yoga-tool.jpg" alt="Dynamic Yoga MCQ Study Tool"></div>
-                <div class="card" data-id="workshop"><img src="images/workshop-page.jpg" alt="AI-Powered Psychology Workshop Webpage"></div>
-                <div class="card" data-id="notes"><img src="images/notes-page.jpg" alt="Incentivized Study Notes Webpages"></div>
-            </div>
-        </section>
+        <div class="content-rows">
+            <section class="row">
+                <h2>Work Experience</h2>
+                <div class="carousel">
+                    <div class="card" data-id="gsa"><div class="card-inner"><img src="images/gsa-thumbnail.jpg" alt="Google Student Ambassador"><span>Google Ambassador</span></div></div>
+                    <div class="card" data-id="ucb"><div class="card-inner"><img src="images/ucb-thumbnail.jpg" alt="UC Berkeley Research Assistant"><span>UC Berkeley</span></div></div>
+                    <div class="card" data-id="sambhav"><div class="card-inner"><img src="images/sambhav-thumbnail.jpg" alt="Sambhav Initiative"><span>Sambhav Initiative</span></div></div>
+                    <div class="card" data-id="msu_ra"><div class="card-inner"><img src="images/msu-ra-thumbnail.jpg" alt="MSU Research Assistant"><span>MSU Research</span></div></div>
+                </div>
+            </section>
+            
+            <section class="row">
+                <h2>AI-Driven Projects</h2>
+                <div class="carousel">
+                    <div class="card" data-id="yoga"><div class="card-inner"><img src="images/yoga-tool.jpg" alt="Yoga MCQ Tool"><span>AI Project Lead: The Yoga Study Tool</span></div></div>
+                    <div class="card" data-id="workshop"><div class="card-inner"><img src="images/workshop-page.jpg" alt="Workshop Webpage"><span>AI Project: Gemini for Learners</span></div></div>
+                    <div class="card" data-id="notes"><div class="card-inner"><img src="images/notes-page.jpg" alt="Study Notes"><span>Product Strategist: The Notes Engagement Platform</span></div></div>
+                </div>
+            </section>
 
-        <!-- CERTIFICATIONS ROW -->
-        <section class="row">
-            <h2>Certifications</h2>
-            <div class="carousel">
-                <div class="card" data-id="mckinsey"><img src="images/mckinsey-cert.jpg" alt="McKinsey Forward Program"></div>
-                <div class="card" data-id="forage"><img src="images/forage-cert.jpg" alt="Forage Virtual Experience Programs"></div>
-                <div class="card" data-id="hp"><img src="images/hp-cert.jpg" alt="Effective Leadership | HP Life"></div>
-                <div class="card" data-id="citi"><img src="images/citi-cert.jpg" alt="CITI Program Certifications"></div>
-            </div>
-        </section>
+            <section class="row">
+                <h2>Certifications</h2>
+                <div class="carousel">
+                    <div class="card" data-id="mckinsey"><div class="card-inner"><img src="images/mckinsey-cert.jpg" alt="McKinsey Program"><span>McKinsey Program</span></div></div>
+                    <div class="card" data-id="forage"><div class="card-inner"><img src="images/forage-cert.jpg" alt="Forage Programs"><span>Forage Programs</span></div></div>
+                    <div class="card" data-id="hp"><div class="card-inner"><img src="images/hp-cert.jpg" alt="HP Life Leadership"><span>HP Life Leadership</span></div></div>
+                    <div class="card" data-id="citi"><div class="card-inner"><img src="images/citi-cert.jpg" alt="CITI Program"><span>CITI Program</span></div></div>
+                </div>
+            </section>
+        </div>
     </main>
-
-    <!-- THE MODAL (POP-UP) - This is hidden for now -->
-    <div id="modal" class="modal-container">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2 id="modal-title"></h2>
-            <p id="modal-description"></p>
+    
+    <div id="detail-view-container"></div>
+    
+    <div id="education-view" class="hidden">
+        <div class="timeline-container">
+            <h2>Education & Experience Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Masters of Arts in Industrial-Organizational Psychology</h3>
+                        <p>The Maharaja Sayajirao University of Baroda, Vadodara</p>
+                        <div class="timeline-date">July 2025 - May 2027</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Bachelors of Arts in Psychology</h3>
+                        <p>The Maharaja Sayajirao University of Baroda, Vadodara</p>
+                        <div class="timeline-date">July 2022 - May 2025</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Primary & Secondary Schooling</h3>
+                        <p>Little Flower's School, Dahod</p>
+                        <div class="timeline-date">July 2010 - April 2022</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
+    <div id="skills-view" class="hidden">
+        <div class="skills-container">
+            <h2>Skills & Expertise</h2>
+            
+            <div class="skill-category">
+                <h3>AI & Technical</h3>
+                <div class="skills-grid-fullpage">
+                    <div class="skill-card-fullpage"><i class="fas fa-robot"></i><h4>Generative AI</h4><p>Directing AI to perform complex tasks like data structuring and code generation.</p></div>
+                    <div class="skill-card-fullpage"><i class="fas fa-laptop-code"></i><h4>No-Code Development</h4><p>Building functional applications from concept to deployment using AI-driven tools.</p></div>
+                    <div class="skill-card-fullpage"><i class="fas fa-drafting-compass"></i><h4>Digital Solution Design</h4><p>Architecting and engineering technology-driven solutions for specific user needs.</p></div>
+                    <div class="skill-card-fullpage"><i class="fas fa-database"></i><h4>Data Structuring</h4><p>Processing and converting raw, unstructured information into a usable database format.</p></div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Industrial & Organizational Psychology</h3>
+                <div class="skills-grid-fullpage">
+                    <div class="skill-card-fullpage"><i class="fas fa-brain"></i><h4>Behavioral Design</h4><p>Applying principles of psychology to design technology that guides user behavior, as shown in the GSA projects.</p></div>
+                    <div class="skill-card-fullpage"><i class="fas fa-mouse-pointer"></i><h4>Human-Computer Interaction (HCI)</h4><p>Focusing on designing intuitive and user-centered technology interfaces by understanding user psychology.</p></div>
+                    <div class="skill-card-fullpage"><i class="fas fa-gamepad"></i><h4>Gamification for Engagement</h4><p>Using game-like mechanics to increase user motivation and participation in digital experiences.</p></div>
+                    <div class="skill-card-fullpage"><i class="fas fa-chart-pie"></i><h4>AI-Driven Assessment</h4><p>Exploring the use of artificial intelligence to create more efficient and effective methods for evaluating human potential.</p></div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Research & Analytical</h3>
+                <div class="skills-grid-fullpage">
+                    <div class="skill-card-fullpage"><i class="fas fa-microscope"></i><h4>Qualitative Methods</h4><p>Executing end-to-end qualitative studies, including participant-observation techniques.</p></div>
+                    <div class="skill-card-fullpage"><i class="fas fa-book-open"></i><h4>Literature Review</h4><p>Synthesizing existing academic knowledge to inform and build new research frameworks.</p></div>
+                    <div class="skill-card-fullpage"><i class="fas fa-chart-line"></i><h4>Data Analysis</h4><p>Interpreting qualitative data to uncover behavioral patterns and user insights.</p></div>
+                    <div class="skill-card-fullpage"><i class="fas fa-shield-alt"></i><h4>Ethical Research</h4><p>Adhering to strict academic and professional standards to ensure research integrity.</p></div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Product & Workplace</h3>
+                <div class="skills-grid-fullpage">
+                    <div class="skill-card-fullpage"><i class="fas fa-rocket"></i><h4>Product Ideation</h4><p>Conceiving and architecting technology products to solve specific challenges.</p></div>
+                    <div class="skill-card-fullpage"><i class="fas fa-lightbulb"></i><h4>Incentive Design</h4><p>Identifying key user needs and leveraging them as powerful incentives for engagement.</p></div>
+                    <div class="skill-card-fullpage"><i class="fas fa-users"></i><h4>User Engagement Strategy</h4><p>Developing creative funnels to convert passive users into active participants.</p></div>
+                    <div class="skill-card-fullpage"><i class="fas fa-clipboard-list"></i><h4>Needs Assessment</h4><p>Systematically determining and addressing gaps between current conditions and desired outcomes.</p></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
+
