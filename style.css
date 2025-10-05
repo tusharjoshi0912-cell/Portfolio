@@ -14,12 +14,51 @@ body {
     overflow-x: hidden;
 }
 
+/* ------------------------------------------------------------------ */
+/* CORE ANIMATION FIX: Animation is now on .content-wrapper ONLY */
+/* ------------------------------------------------------------------ */
+
+/* 1. Base Container: Back to simple block visibility */
+#main-content,
+#education-view,
+#skills-view,
+#about-view {
+    padding-top: 90px; /* Space below fixed nav */
+    position: static;
+    display: block; 
+    transition: none; /* No animation on the outer container */
+}
+
+/* 2. Hidden State: Use standard hide method */
 #main-content.hidden,
 #education-view.hidden,
 #skills-view.hidden,
 #about-view.hidden {
     display: none;
 }
+
+/* 3. The Animated Wrapper: This inner div slides up and fades in */
+.content-wrapper {
+    /* Set starting animation state (hidden and below viewport) */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    
+    /* Animation speed: Fast 0.3s for mobile-like feel, ease-out for smooth stop */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-out, visibility 0.3s ease-in-out;
+}
+
+/* 4. Active State: When the content-wrapper is contained in a visible parent */
+#main-content:not(.hidden) .content-wrapper,
+#education-view:not(.hidden) .content-wrapper,
+#skills-view:not(.hidden) .content-wrapper,
+#about-view:not(.hidden) .content-wrapper {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Slides up to resting position */
+}
+/* ------------------------------------------------------------------ */
+
 
 .main-nav {
     position: fixed;
@@ -393,7 +432,6 @@ body {
     flex-wrap: wrap;
 }
 
-/* --- FIX APPLIED HERE --- */
 .skill-tooltip {
     position: fixed;
     background-color: rgba(240, 240, 240, 0.95);
@@ -402,22 +440,19 @@ body {
     border-radius: 5px;
     font-size: 0.9rem;
     line-height: 1.4;
-    max-width: 90vw; /* Make it relative to the viewport width */
-    width: auto;
-    left: 50% !important; /* Center the tooltip on mobile screens */
-    transform: translate(-50%, -110%) !important; /* Center the tooltip on mobile screens */
+    max-width: 250px;
     text-align: left;
     z-index: 3000;
     pointer-events: none;
     opacity: 0;
+    transform: translate(-50%, -110%);
     transition: opacity 0.2s ease, transform 0.2s ease;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
-/* --- END FIX --- */
 
 .skill-tooltip.visible {
     opacity: 1;
-    transform: translate(-50%, -120%) !important;
+    transform: translate(-50%, -120%);
 }
 
 .timeline-container,

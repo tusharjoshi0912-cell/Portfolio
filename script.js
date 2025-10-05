@@ -20,7 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 { name: 'AI-Powered Development', icon: 'fas fa-robot', reason: 'Proven ability to manage the creation of multiple web applications by directing a generative AI as a development partner.' },
                 { name: 'Prompt Engineering', icon: 'fas fa-terminal', reason: 'Learned to write clear and effective instructions to command an AI to perform complex tasks like data structuring and code generation.' },
                 { name: 'Rapid Prototyping', icon: 'fas fa-bolt', reason: 'Demonstrated the ability to take an idea and turn it into a finished, working product quickly and efficiently using AI tools.' },
-                { name: 'Conditional Logic', icon: 'fas fa-code-branch', reason: 'Built the core logic for the notes platform that differentiated between new and returning users to create a seamless experience.' }
+                { name: 'Conditional Logic', icon: 'fas fa-code-branch', reason: 'Built the core IF/ELSE logic that powers the platform (e.g., IF user is new, show QR page, ELSE show notes page).' },
+                { name: 'Client-Side State Management', icon: 'fas fa-save', reason: 'Implemented logic to remember verified users on their device via browser storage for repeat visits.' },
+                { name: 'Frontend Development', icon: 'fas fa-desktop', reason: 'Built the entire user-facing experience, including the gated landing pages, the task sequence, and the final notes pages.' },
+                { name: 'UI/UX Design', icon: 'fas fa-bezier-curve', reason: 'Designed the user flow from start to finish, guiding the user through a series of steps to reach their goal.' }
             ],
             backgroundImage: 'images/gsa-detail-bg.jpg'
         },
@@ -127,12 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 { name: 'AI Project Lead', icon: 'fas fa-user-tie', reason: 'Acted as the project director, providing the vision and instructions for Google Gemini to execute the technical development from the ground up.' },
                 { name: 'Audience-Specific Design', icon: 'fas fa-users', reason: 'Designed the webpage specifically for psychology students, showing an ability to think about a target audience and create a tool that meets their needs.' }
             ],
-            technicalSkills: [
-                { name: 'AI-Powered Development', icon: 'fas fa-robot', reason: 'Proven ability to successfully manage the creation of a web application using a generative AI as a development partner.' },
-                { name: 'Prompt Engineering', icon: 'fas fa-terminal', reason: 'Learned and applied the core skill of writing clear and effective instructions to get a complex result from an AI.' },
-                { name: 'Rapid Prototyping', icon: 'fas fa-bolt', reason: 'Demonstrated the ability to take an idea and turn it into a finished, working product quickly and efficiently.' },
-                { name: 'Project Execution', icon: 'fas fa-clipboard-check', reason: 'Managed this project from the initial idea to the final deployed website, showing the ability to see a project through to completion independently.' }
-            ],
             softSkills: [
                 { name: 'Initiative', icon: 'fas fa-star', reason: 'Identified an opportunity to stand out and built a solution from scratch, without waiting to be assigned a project.' },
                 { name: 'Innovative Thinking', icon: 'fas fa-brain', reason: 'Found a new and better way to approach a challenge (applying for a program) by using technology creatively.' },
@@ -234,8 +231,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const educationView = document.getElementById('education-view');
     const skillsView = document.getElementById('skills-view');
     const aboutView = document.getElementById('about-view');
+    
+    // Store all content views in an array for easy iteration
+    const contentViews = [mainContent, educationView, skillsView, aboutView];
+
     let tooltip = null; 
     let scrollPosition = 0;
+
+    // Function to hide all views (used for transitioning to detail view)
+    function hideAllViews() {
+        contentViews.forEach(view => {
+            view.classList.add('hidden');
+        });
+        // We clear the detail view immediately for clarity
+        detailViewContainer.innerHTML = ''; 
+    }
+
+    // Function to show a specific view (REMOVED ANIMATION LOGIC)
+    function showView(viewElement) {
+        // Find the currently visible section to hide it
+        const currentVisibleView = contentViews.find(view => !view.classList.contains('hidden'));
+        
+        // 1. If a view is currently visible, hide it instantly.
+        if (currentVisibleView) {
+            currentVisibleView.classList.add('hidden');
+        }
+
+        // 2. Show the target view instantly.
+        viewElement.classList.remove('hidden');
+    }
+
 
     function showDetailView(id) {
         scrollPosition = window.scrollY;
@@ -291,17 +316,15 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
 
-        mainContent.classList.add('hidden');
-        educationView.classList.add('hidden');
-        skillsView.classList.add('hidden');
-        aboutView.classList.add('hidden');
+        // Hide all main sections instantly before showing the detail view animation
+        hideAllViews(); 
         detailViewContainer.innerHTML = detailHtml;
         document.querySelector('.back-btn').addEventListener('click', hideDetailView);
         setupTooltips();
     }
 
     function hideDetailView() {
-        mainContent.classList.remove('hidden');
+        showView(mainContent); // Use showView for smooth transition back to main content
         detailViewContainer.innerHTML = '';
         window.scrollTo(0, scrollPosition);
         
@@ -355,24 +378,23 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const linkId = e.currentTarget.id;
 
+        // 1. Update active state instantly
         document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
         e.currentTarget.classList.add('active');
-
-        mainContent.classList.add('hidden');
-        educationView.classList.add('hidden');
-        skillsView.classList.add('hidden');
-        aboutView.classList.add('hidden');
-        detailViewContainer.innerHTML = '';
-
-        if (linkId === 'home-link' || linkId === 'logo-link') {
-            mainContent.classList.remove('hidden');
-        } else if (linkId === 'education-link') {
-            educationView.classList.remove('hidden');
+        
+        // 2. Determine which view to show
+        let targetView = mainContent;
+        if (linkId === 'education-link') {
+            targetView = educationView;
         } else if (linkId === 'skills-link') {
-            skillsView.classList.remove('hidden');
+            targetView = skillsView;
         } else if (linkId === 'about-link') {
-            aboutView.classList.remove('hidden');
+            targetView = aboutView;
         }
+
+        // 3. Clear detail view instantly and trigger instant display change
+        detailViewContainer.innerHTML = '';
+        showView(targetView);
     }
 
     navLinks.forEach(link => {
@@ -380,7 +402,10 @@ document.addEventListener('DOMContentLoaded', () => {
              link.addEventListener('click', handleNavClick);
         }
     });
-    document.getElementById('logo-link').addEventListener('click', handleNavClick);
+    document.getElementById('logo-link').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('home-link').click(); // Simulate click on Home link for instant change
+    });
 
 
     createTooltip();
