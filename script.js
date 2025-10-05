@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { name: 'Deployment', icon: 'fas fa-rocket', reason: 'Successfully deployed a web application to the internet using the modern hosting platform Vercel.' }
             ],
             softSkills: [
-                { name: 'Initiative & Autonomy', icon: 'fas fa-star', reason: 'Identified a personal learning challenge and took it upon myself to build the solution from scratch, without being told to.' },
+                { name: 'Initiative & Autonomy', icon: 'fas fa-star', reason: 'Identified a personal learning challenge and took the initiative to build the solution from scratch, without being told to.' },
                 { name: 'Problem-Solving', icon: 'fas fa-check-circle', reason: 'Logically identified a need and figured out the steps to engineer a practical, technology-driven solution using available tools.' },
                 { name: 'Learning Agility', icon: 'fas fa-brain', reason: 'Quickly learned how to leverage the power of a new technology (generative AI) to achieve a specific, tangible goal.' },
                 { name: 'Project Management', icon: 'fas fa-clipboard-list', reason: 'Managed this project from concept to completion, defining the requirements and seeing it through to a successful launch.' }
@@ -118,12 +118,12 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         workshop: {
             title: "AI Project: Gemini for Learners",
-            synopsis: "As a strategic initiative for the Google Student Ambassador program, this unique and interactive webpage was created to support my candidacy. Acting as project lead, I guided Google Gemini to build the entire site, which was designed as a custom resource for psychology students and served as a live demonstration of my ability to leverage AI for rapid development.",
+            synopsis: "As a strategic initiative for the Google Student Ambassador program, this unique and interactive webpage was created to support the candidacy. Acting as project lead, Google Gemini was guided to build the entire site, which was designed as a custom resource for psychology students and served as a live demonstration of the ability to leverage AI for rapid development.",
             projectLinks: [
                 { name: 'Launch Workshop Page', url: 'https://gemini-for-learners-22yg.vercel.app/' }
             ],
             keyContributions: [
-                { name: 'Innovative Application Tool', icon: 'fas fa-lightbulb', reason: 'Built a unique and interactive webpage as part of my application, a creative approach that made my candidacy stand out and led to my selection.' },
+                { name: 'Innovative Application Tool', icon: 'fas fa-lightbulb', reason: 'Built a unique and interactive webpage as part of the application, a creative approach that made the candidacy stand out and led to the selection.' },
                 { name: 'AI Project Lead', icon: 'fas fa-user-tie', reason: 'Acted as the project director, providing the vision and instructions for Google Gemini to execute the technical development from the ground up.' },
                 { name: 'Audience-Specific Design', icon: 'fas fa-users', reason: 'Designed the webpage specifically for psychology students, showing an ability to think about a target audience and create a tool that meets their needs.' }
             ],
@@ -131,13 +131,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 { name: 'AI-Powered Development', icon: 'fas fa-robot', reason: 'Proven ability to successfully manage the creation of a web application using a generative AI as a development partner.' },
                 { name: 'Prompt Engineering', icon: 'fas fa-terminal', reason: 'Learned and applied the core skill of writing clear and effective instructions to get a complex result from an AI.' },
                 { name: 'Rapid Prototyping', icon: 'fas fa-bolt', reason: 'Demonstrated the ability to take an idea and turn it into a finished, working product quickly and efficiently.' },
-                { name: 'Project Execution', icon: 'fas fa-clipboard-check', reason: 'Managed this project from the initial idea to the final deployed website, showing I can see a project through to completion on my own.' }
+                { name: 'Project Execution', icon: 'fas fa-clipboard-check', reason: 'Managed this project from the initial idea to the final deployed website, showing the ability to see a project through to completion independently.' }
             ],
             softSkills: [
-                { name: 'Initiative', icon: 'fas fa-star', reason: 'Identified an opportunity to stand out and built a solution myself from scratch, without waiting to be assigned a project.' },
+                { name: 'Initiative', icon: 'fas fa-star', reason: 'Identified an opportunity to stand out and built a solution from scratch, without waiting to be assigned a project.' },
                 { name: 'Innovative Thinking', icon: 'fas fa-brain', reason: 'Found a new and better way to approach a challenge (applying for a program) by using technology creatively.' },
                 { name: 'Resourcefulness', icon: 'fas fa-tools', reason: 'Skillfully used a powerful tool (Gemini) to build something that would have otherwise required extensive coding knowledge.' },
-                { name: 'Goal-Oriented Action', icon: 'fas fa-bullseye', reason: 'Set a clear goal (getting selected as an ambassador) and built a specific tool to help you achieve it.' }
+                { name: 'Goal-Oriented Action', icon: 'fas fa-bullseye', reason: 'Set a clear goal (getting selected as an ambassador) and built a specific tool to help achieve it.' }
             ],
             backgroundImage: 'images/workshop-detail-bg.jpg'
         },
@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ],
             technicalSkills: [
                 { name: 'Conditional Logic', icon: 'fas fa-code-branch', reason: 'Built the core IF/ELSE logic that powers the platform (e.g., IF user is new, show QR page, ELSE show notes page).' },
-                { name: 'Client-Side State Management', icon: 'fas fa-save', reason: 'Implemented the mechanism to "remember" a user on a specific device after they complete the tasks, using browser storage.' },
+                { name: 'Client-Side State Management', icon: 'fas fa-save', reason: 'Implemented logic to remember verified users on their device via browser storage for repeat visits.' },
                 { name: 'Frontend Development', icon: 'fas fa-desktop', reason: 'Built the entire user-facing experience, including the gated landing pages, the task sequence, and the final notes pages.' },
                 { name: 'UI/UX Design', icon: 'fas fa-bezier-curve', reason: 'Designed the user flow from start to finish, guiding the user through a series of steps to reach their goal.' }
             ],
@@ -171,6 +171,9 @@ document.addEventListener('DOMContentLoaded', () => {
         mckinsey: {
             title: "McKinsey.org Forward Program",
             description: "A virtual learning program focused on developing practical skills in leadership, business, and digital tools, preparing participants for future workplace challenges.",
+            projectLinks: [
+                { name: 'View Badge', url: 'https://www.credly.com/badges/b4a8470e-0953-4f01-ba51-4ddadc5238cf/linked_in_profile' }
+            ],
             skills: [
                 { name: 'Leadership', icon: 'fas fa-users', reason: 'Learned foundational leadership principles and frameworks used by top-tier consulting firms.' },
                 { name: 'Business Acumen', icon: 'fas fa-briefcase', reason: 'Gained insights into business strategy, problem-solving, and effective communication in a corporate context.' },
@@ -181,6 +184,12 @@ document.addEventListener('DOMContentLoaded', () => {
         forage: {
             title: "Forage Virtual Experience Programs",
             description: "Completed job simulations in key corporate functions, gaining practical insights into real-world tasks at leading global companies.",
+             projectLinks: [
+                { name: 'View Deloitte Certificate', url: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_LHKgREX7Nh9s9umRi_1749738556611_completion_certificate.pdf' },
+                { name: 'View GE Aerospace Certificate', url: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ay2tsYxaTif7Nt6z7/bAPubTkawzGexc6TT_ay2tsYxaTif7Nt6z7_LHKgREX7Nh9s9umRi_1749653966396_completion_certificate.pdf' },
+                { name: 'View BCG Certificate 1', url: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/SKZxezskWgmFjRvj9/4Rfzeut8gXmNwfxXv_SKZxezskWgmFjRvj9_LHKgREX7Nh9s9umRi_1750346618641_completion_certificate.pdf' },
+                { name: 'View BCG Certificate 2', url: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/SKZxezskWgmFjRvj9/ntTvo6ru6Tq3A2JPq_SKZxezskWgmFjRvj9_LHKgREX7Nh9s9umRi_1750776823883_completion_certificate.pdf' }
+            ],
             skills: [
                 { name: 'HR Simulation (GE)', icon: 'fas fa-user-friends', reason: 'Gained practical experience in human resources by completing tasks that simulate the daily work of an HR professional at GE.' },
                 { name: 'Data Analytics (Deloitte)', icon: 'fas fa-chart-line', reason: 'Completed a virtual job simulation focused on data analysis, learning how to approach and solve data-driven business problems at Deloitte.' },
@@ -191,6 +200,9 @@ document.addEventListener('DOMContentLoaded', () => {
         hp: {
             title: "Effective Leadership | HP Life",
             description: "A program by the HP Foundation focused on developing essential qualities for effective leadership, communication, and team management in a professional environment.",
+            projectLinks: [
+                { name: 'View Badge', url: 'https://www.life-global.org/en/badges/b4029e25-6f6f-48ef-aa80-a53350ce8df4' }
+            ],
             skills: [
                 { name: 'Leadership', icon: 'fas fa-users', reason: 'Developed an understanding of key leadership styles and how to apply them in a professional setting.' },
                 { name: 'Communication', icon: 'fas fa-comments', reason: 'Learned and practiced techniques for clear, effective, and persuasive communication in a team environment.' },
@@ -201,6 +213,11 @@ document.addEventListener('DOMContentLoaded', () => {
         citi: {
             title: "CITI Program Certifications",
             description: "Certified in the foundational principles of ethical research, ensuring compliance and integrity in academic and professional studies.",
+             projectLinks: [
+                { name: 'Verify Conduct of Research Cert.', url: 'https://www.citiprogram.org/verify/?weac6cc34-9148-4e66-a372-7ca0033ad88b-66728301' },
+                { name: 'Verify SBE Research Cert.', url: 'https://www.citiprogram.org/verify/?wc2ec2ad4-1dd7-4b32-9990-d4986cf29692-66728302' },
+                { name: 'Verify Conflicts of Interest Cert.', url: 'https://www.citiprogram.org/verify/?wd0c83cf2-e344-46f8-81ce-659104b0deec-66728303' }
+            ],
             skills: [
                 { name: 'Behavioral Research', icon: 'fas fa-book-open', reason: 'Certified in the ethical standards and best practices required for conducting social and behavioral research.' },
                 { name: 'Investigator Conduct', icon: 'fas fa-user-shield', reason: 'Completed training on the professional responsibilities and ethical conduct of research investigators.' },
@@ -216,30 +233,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
     const educationView = document.getElementById('education-view');
     const skillsView = document.getElementById('skills-view');
+    const aboutView = document.getElementById('about-view');
     let tooltip = null; 
     let scrollPosition = 0;
 
     function showDetailView(id) {
         scrollPosition = window.scrollY;
-        document.body.style.overflow = 'hidden';
-
+        
         const data = portfolioData[id];
         if (!data) return;
 
-        let detailBodyHtml = '';
-        
-        const description = data.synopsis || data.description;
-        let linksHtml = '';
-        if (data.projectLinks && data.projectLinks.length > 0) {
-            linksHtml += '<div class="project-links">';
-            data.projectLinks.forEach(link => {
-                linksHtml += `<a href="${link.url}" target="_blank" class="btn btn-launch"><i class="fas fa-external-link-alt"></i> ${link.name}</a>`;
-            });
-            linksHtml += '</div>';
-        }
-        
-        detailBodyHtml += `<p>${description}</p>${linksHtml}`;
+        let introHtml = `
+            <div class="detail-intro-section" style="background-image: url('${data.backgroundImage}');">
+                <div class="detail-intro-content">
+                     <h1>${data.title}</h1>
+        `;
 
+        const description = data.synopsis || data.description;
+        introHtml += `<p>${description}</p>`;
+
+        if (data.projectLinks && data.projectLinks.length > 0) {
+            introHtml += '<div class="project-links">';
+            data.projectLinks.forEach(link => {
+                introHtml += `<a href="${link.url}" target="_blank" class="btn btn-launch"><i class="fas fa-external-link-alt"></i> ${link.name}</a>`;
+            });
+            introHtml += '</div>';
+        }
+        introHtml += '</div></div>';
+
+        let sectionsHtml = '<div class="detail-sections-wrapper">';
         const sectionMap = {
             keyContributions: 'Key Contributions',
             productAndStrategySkills: 'Product & Strategy Skills',
@@ -250,23 +272,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         for (const key in sectionMap) {
             if (data[key] && data[key].length > 0) {
-                detailBodyHtml += `<h4>${sectionMap[key]}</h4><div class="skills-grid">`;
+                sectionsHtml += `<h4>${sectionMap[key]}</h4><div class="skills-grid">`;
                 data[key].forEach(item => {
-                    detailBodyHtml += `<div class="skill-card" data-reason="${item.reason || ''}"><i class="${item.icon || 'fas fa-star'}"></i> ${item.name}</div>`;
+                    sectionsHtml += `<div class="skill-card" data-reason="${item.reason || ''}"><i class="${item.icon || 'fas fa-star'}"></i> ${item.name}</div>`;
                 });
-                detailBodyHtml += '</div>';
+                sectionsHtml += '</div>';
             }
         }
+        sectionsHtml += '</div>';
 
         const detailHtml = `
             <div class="detail-view">
-                <div class="detail-view-background" style="background-image: linear-gradient(to right, rgba(0,0,0,0.8) 20%, transparent), url('${data.backgroundImage}');"></div>
                 <div class="back-btn"><i class="fas fa-arrow-left"></i></div>
                 <div class="detail-content-wrapper">
-                    <div class="detail-content">
-                        <h1>${data.title}</h1>
-                        ${detailBodyHtml}
-                    </div>
+                    ${introHtml}
+                    ${sectionsHtml}
                 </div>
             </div>
         `;
@@ -274,21 +294,21 @@ document.addEventListener('DOMContentLoaded', () => {
         mainContent.classList.add('hidden');
         educationView.classList.add('hidden');
         skillsView.classList.add('hidden');
+        aboutView.classList.add('hidden');
         detailViewContainer.innerHTML = detailHtml;
         document.querySelector('.back-btn').addEventListener('click', hideDetailView);
         setupTooltips();
     }
 
     function hideDetailView() {
-        document.body.style.overflow = '';
         mainContent.classList.remove('hidden');
         detailViewContainer.innerHTML = '';
         window.scrollTo(0, scrollPosition);
         
-        // Reset nav links
         document.getElementById('home-link').classList.add('active');
         document.getElementById('education-link').classList.remove('active');
         document.getElementById('skills-link').classList.remove('active');
+        document.getElementById('about-link').classList.remove('active');
     }
 
     function createTooltip() {
@@ -331,37 +351,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    function handleNavClick(e) {
+        e.preventDefault();
+        const linkId = e.currentTarget.id;
+
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+
+        mainContent.classList.add('hidden');
+        educationView.classList.add('hidden');
+        skillsView.classList.add('hidden');
+        aboutView.classList.add('hidden');
+        detailViewContainer.innerHTML = '';
+
+        if (linkId === 'home-link' || linkId === 'logo-link') {
+            mainContent.classList.remove('hidden');
+        } else if (linkId === 'education-link') {
+            educationView.classList.remove('hidden');
+        } else if (linkId === 'skills-link') {
+            skillsView.classList.remove('hidden');
+        } else if (linkId === 'about-link') {
+            aboutView.classList.remove('hidden');
+        }
+    }
+
     navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            if(link.id === 'logo-link' || link.id === 'home-link'){
-                 e.preventDefault();
-                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-                document.getElementById('home-link').classList.add('active');
-                mainContent.classList.remove('hidden');
-                educationView.classList.add('hidden');
-                skillsView.classList.add('hidden');
-                detailViewContainer.innerHTML = '';
-            } else if (link.id === 'education-link'){
-                 e.preventDefault();
-                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-                link.classList.add('active');
-                mainContent.classList.add('hidden');
-                educationView.classList.remove('hidden');
-                skillsView.classList.add('hidden');
-                detailViewContainer.innerHTML = '';
-            } else if (link.id === 'skills-link'){
-                e.preventDefault();
-                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-                link.classList.add('active');
-                mainContent.classList.add('hidden');
-                educationView.classList.add('hidden');
-                skillsView.classList.remove('hidden');
-                detailViewContainer.innerHTML = '';
-            }
-        });
+        if (!link.href.includes('mailto:')) {
+             link.addEventListener('click', handleNavClick);
+        }
     });
+    document.getElementById('logo-link').addEventListener('click', handleNavClick);
+
 
     createTooltip();
-    setupTooltips(); // Also setup for skills page on initial load
+    setupTooltips();
 });
-
