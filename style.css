@@ -710,3 +710,59 @@ body {
     margin-top: 0;
 }
 
+/* ADD THIS CSS FOR THE MOBILE WARNING BANNER */
+#mobile-warning-banner {
+    display: none; /* Hidden by default, JS will show it */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1a1a1a;
+    color: #fce100; /* Neon yellow text */
+    padding: 10px 20px;
+    text-align: center;
+    z-index: 10000;
+    border-bottom: 2px solid #fce100;
+    box-shadow: 0 0 15px rgba(252, 225, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    animation: pulse-yellow 2s infinite;
+}
+
+#mobile-warning-banner i {
+    margin-right: 10px;
+}
+
+#mobile-warning-banner p {
+    margin: 0;
+    text-shadow: 
+        0 0 5px #fce100,
+        0 0 10px #fce100,
+        0 0 20px #ffdd00,
+        0 0 30px #ffdd00;
+}
+
+#close-banner-btn {
+    background: none;
+    border: none;
+    color: #fce100;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 15px;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+#close-banner-btn:hover {
+    opacity: 1;
+}
+
+@keyframes pulse-yellow {
+    0% { box-shadow: 0 0 15px rgba(252, 225, 0, 0.5); }
+    50% { box-shadow: 0 0 25px rgba(252, 225, 0, 0.8); }
+    100% { box-shadow: 0 0 15px rgba(252, 225, 0, 0.5); }
+}
+/* END OF BANNER CSS */
