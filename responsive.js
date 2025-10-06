@@ -1,24 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
     const mobileOverlay = document.getElementById('mobile-block-overlay');
 
-    function detectMobile() {
-        const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent) 
-                         || window.innerWidth < 981;
+    function isMobileDevice() {
+        // Detects true mobile devices, even if desktop mode is enabled
+        const ua = navigator.userAgent || navigator.vendor || window.opera;
+        const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        const isSmallScreen = Math.min(window.innerWidth, window.innerHeight) < 980;
+        const isRealMobile = /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua);
 
-        if (isMobile) {
-            // Always show Netflix-style overlay for mobile users
+        return isRealMobile || isTouch || isSmallScreen;
+    }
+
+    function handleDisplay() {
+        if (isMobileDevice()) {
             mobileOverlay.style.display = 'flex';
-
-            // Block scrolling or interactions on the page
             document.body.style.overflow = 'hidden';
         } else {
-            // Hide overlay only for desktops/laptops
             mobileOverlay.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
     }
 
-    // Run once on load and again when resized
-    detectMobile();
-    window.addEventListener('resize', detectMobile);
+    // Run on page load and on resize/orientation changes
+    handleDisplay();
+    window.addEventListener('resize', handleDisplay);
+    window.addEventListener('orientationchange', handleDisplay);
 });
