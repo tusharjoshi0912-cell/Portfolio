@@ -1,25 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const warningBanner = document.getElementById('mobile-warning-banner');
-    const closeBannerBtn = document.getElementById('close-banner-btn');
+    const mobileOverlay = document.getElementById('mobile-block-overlay');
 
-    // This function reliably checks if the user is on a mobile device
-    function isMobileDevice() {
-        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    }
+    function detectMobile() {
+        const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent) 
+                         || window.innerWidth < 981;
 
-    // If the script detects a mobile device, show the banner
-    if (isMobileDevice()) {
-        if (warningBanner) {
-            warningBanner.style.display = 'flex';
+        if (isMobile) {
+            // Always show Netflix-style overlay for mobile users
+            mobileOverlay.style.display = 'flex';
+
+            // Block scrolling or interactions on the page
+            document.body.style.overflow = 'hidden';
+        } else {
+            // Hide overlay only for desktops/laptops
+            mobileOverlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
     }
 
-    // Add the click event to the close button
-    if (closeBannerBtn) {
-        closeBannerBtn.addEventListener('click', () => {
-            if (warningBanner) {
-                warningBanner.style.display = 'none';
-            }
-        });
-    }
+    // Run once on load and again when resized
+    detectMobile();
+    window.addEventListener('resize', detectMobile);
 });

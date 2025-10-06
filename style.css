@@ -18,59 +18,46 @@ body {
     justify-content: center;
 }
 
-/* ADD THIS CSS FOR THE NEW MOBILE WARNING BANNER */
-#mobile-warning-banner {
-    display: none; /* Hidden by default, JS will show it */
+/* ADDED: Styles for the mobile message */
+#mobile-message {
+    display: none; /* Hidden by default */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #1a1a1a;
-    color: #fce100; /* Neon yellow text */
-    padding: 10px 20px;
-    text-align: center;
-    z-index: 10000;
-    border-bottom: 2px solid #fce100;
-    box-shadow: 0 0 15px rgba(252, 225, 0, 0.5);
-    display: flex;
-    align-items: center;
+    height: 100%;
+    background-color: var(--netflix-black);
+    color: var(--text-light);
+    flex-direction: column;
     justify-content: center;
-    font-size: 0.9rem;
-    animation: pulse-yellow 2s infinite;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    z-index: 9999;
 }
 
-#mobile-warning-banner i {
-    margin-right: 10px;
+.message-content {
+    max-width: 300px;
 }
 
-#mobile-warning-banner p {
-    margin: 0;
-    text-shadow: 
-        0 0 5px #fce100,
-        0 0 10px #fce100,
-        0 0 20px #ffdd00;
+.message-content i {
+    font-size: 4rem;
+    color: var(--netflix-red);
+    margin-bottom: 20px;
 }
 
-#close-banner-btn {
-    background: none;
-    border: none;
-    color: #fce100;
-    font-size: 1.5rem;
-    font-weight: bold;
-    cursor: pointer;
-    margin-left: 15px;
-    opacity: 0.8;
-    transition: opacity 0.2s;
+.message-content h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 10px;
 }
 
-#close-banner-btn:hover {
-    opacity: 1;
-}
-
-@keyframes pulse-yellow {
-    0% { box-shadow: 0 0 15px rgba(252, 225, 0, 0.5); }
-    50% { box-shadow: 0 0 25px rgba(252, 225, 0, 0.8); }
-    100% { box-shadow: 0 0 15px rgba(252, 225, 0, 0.5); }
+/* ADDED: Wrapper for the desktop site */
+#desktop-site-wrapper {
+    width: 100%;
+    max-width: 1920px; /* Or your preferred max desktop width */
+    min-width: 1024px; /* The minimum width for the desktop layout */
+    position: relative;
 }
 
 
@@ -723,59 +710,49 @@ body {
     margin-top: 0;
 }
 
-/* ADD THIS CSS FOR THE MOBILE WARNING BANNER */
-#mobile-warning-banner {
-    display: none; /* Hidden by default, JS will show it */
+/* NETFLIX-STYLE MOBILE RESTRICTION OVERLAY */
+#mobile-block-overlay {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    background-color: #1a1a1a;
-    color: #fce100; /* Neon yellow text */
-    padding: 10px 20px;
-    text-align: center;
-    z-index: 10000;
-    border-bottom: 2px solid #fce100;
-    box-shadow: 0 0 15px rgba(252, 225, 0, 0.5);
-    display: flex;
-    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    color: #fff;
+    z-index: 999999;
     justify-content: center;
-    font-size: 0.9rem;
-    animation: pulse-yellow 2s infinite;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 2rem;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    animation: fadeIn 0.8s ease forwards;
 }
 
-#mobile-warning-banner i {
-    margin-right: 10px;
+#mobile-block-overlay .overlay-content {
+    max-width: 600px;
 }
 
-#mobile-warning-banner p {
-    margin: 0;
-    text-shadow: 
-        0 0 5px #fce100,
-        0 0 10px #fce100,
-        0 0 20px #ffdd00,
-        0 0 30px #ffdd00;
+#mobile-block-overlay h1 {
+    font-size: 1.6rem;
+    color: #e50914;
+    margin-bottom: 0.8rem;
 }
 
-#close-banner-btn {
-    background: none;
-    border: none;
-    color: #fce100;
-    font-size: 1.5rem;
-    font-weight: bold;
-    cursor: pointer;
-    margin-left: 15px;
-    opacity: 0.8;
-    transition: opacity 0.2s;
+#mobile-block-overlay p {
+    color: #ccc;
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
-#close-banner-btn:hover {
-    opacity: 1;
+.netflix-logo {
+    width: 140px;
+    margin-bottom: 1.5rem;
+    filter: brightness(1.2);
 }
 
-@keyframes pulse-yellow {
-    0% { box-shadow: 0 0 15px rgba(252, 225, 0, 0.5); }
-    50% { box-shadow: 0 0 25px rgba(252, 225, 0, 0.8); }
-    100% { box-shadow: 0 0 15px rgba(252, 225, 0, 0.5); }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
-/* END OF BANNER CSS */
