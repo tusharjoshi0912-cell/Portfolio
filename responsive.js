@@ -3,24 +3,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function isMobileDevice() {
         const ua = navigator.userAgent || navigator.vendor || window.opera;
-        const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        const isSmallScreen = Math.min(window.innerWidth, window.innerHeight) < 981;
-        const isMobileUA = /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua);
 
-        return isMobileUA || isTouch || isSmallScreen;
+        // Detect real mobile devices only
+        return /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua.toLowerCase());
     }
 
     function handleDisplay() {
         if (isMobileDevice()) {
+            // Show overlay only on real mobile devices
             mobileOverlay.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         } else {
+            // Hide overlay for laptops/desktops
             mobileOverlay.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
     }
 
+    // Run on page load
     handleDisplay();
-    window.addEventListener('resize', handleDisplay);
-    window.addEventListener('orientationchange', handleDisplay);
-});
+
+    // Optional: han

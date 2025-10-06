@@ -720,7 +720,7 @@ body {
     background-color: #000;
     color: #fff;
     z-index: 999999;
-    display: none;
+    display: none; /* JS will show it only on mobile */
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -732,28 +732,27 @@ body {
 }
 
 #mobile-block-overlay .overlay-content {
-    max-width: 720px;
+    max-width: 700px;
     width: 90%;
 }
 
 .netflix-logo {
-    width: 150px;
-    margin-bottom: 1.5rem;
+    width: 160px;
+    margin-bottom: 1.8rem;
     filter: brightness(1.3);
 }
 
 #mobile-block-overlay h1 {
     color: #e50914;
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 1rem;
-    letter-spacing: 0.5px;
-    line-height: 1.6;
+    letter-spacing: 1px;
 }
 
 #mobile-block-overlay p {
     color: #ddd;
-    font-size: 1rem;
-    line-height: 1.7;
+    font-size: 1.05rem;
+    line-height: 1.8;
 }
 
 @keyframes fadeIn {
@@ -761,7 +760,7 @@ body {
     to { opacity: 1; }
 }
 
-/* Guarantee full coverage even on large screens */
+/* Ensure full coverage even on desktop preview */
 html, body {
     height: 100%;
     margin: 0;
