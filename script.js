@@ -20,10 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { name: 'AI-Powered Development', icon: 'fas fa-robot', reason: 'Proven ability to manage the creation of multiple web applications by directing a generative AI as a development partner.' },
                 { name: 'Prompt Engineering', icon: 'fas fa-terminal', reason: 'Learned to write clear and effective instructions to command an AI to perform complex tasks like data structuring and code generation.' },
                 { name: 'Rapid Prototyping', icon: 'fas fa-bolt', reason: 'Demonstrated the ability to take an idea and turn it into a finished, working product quickly and efficiently using AI tools.' },
-                { name: 'Conditional Logic', icon: 'fas fa-code-branch', reason: 'Built the core IF/ELSE logic that powers the platform (e.g., IF user is new, show QR page, ELSE show notes page).' },
-                { name: 'Client-Side State Management', icon: 'fas fa-save', reason: 'Implemented logic to remember verified users on their device via browser storage for repeat visits.' },
-                { name: 'Frontend Development', icon: 'fas fa-desktop', reason: 'Built the entire user-facing experience, including the gated landing pages, the task sequence, and the final notes pages.' },
-                { name: 'UI/UX Design', icon: 'fas fa-bezier-curve', reason: 'Designed the user flow from start to finish, guiding the user through a series of steps to reach their goal.' }
+                { name: 'Conditional Logic', icon: 'fas fa-code-branch', reason: 'Built the core logic for the notes platform that differentiated between new and returning users to create a seamless experience.' }
             ],
             backgroundImage: 'images/gsa-detail-bg.jpg'
         },
@@ -40,13 +37,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 { name: 'Research Assistance', icon: 'fas fa-book-reader', reason: 'Directly supported a high-stakes, international academic research project in a fast-paced field environment.' },
                 { name: 'Data Collection', icon: 'fas fa-chart-bar', reason: 'Conducted both one-on-one and group study sessions with children, gathering primary data crucial to the project\'s success.' },
                 { name: 'Participant Recruitment', icon: 'fas fa-users-cog', reason: 'Efficiently organized and managed student participants from classrooms, ensuring a steady and reliable data flow for the research team.' },
-                { name: 'Bilingual Translation', icon: 'fas fa-language', reason: 'Translated sensitive and technical research documents, ensuring methodological integrity and clear participant understanding.' }
+                { name: 'Bilingual Translation', icon: 'fas fa-language', reason: 'Translated sensitive and technical research documents, ensuring methodological integrity and clear participant understanding.' },
+                { name: 'Protocol Adherence', icon: 'fas fa-clipboard-check', reason: 'Meticulously followed complex experimental protocols to ensure the validity and reliability of the collected data.' }
             ],
             softSkills: [
                 { name: 'Cross-Cultural Communication', icon: 'fas fa-globe', reason: 'Acted as the primary liaison between the US-based research team and local Gujarati/Hindi-speaking participants.' },
                 { name: 'Adaptability', icon: 'fas fa-sync-alt', reason: 'Demonstrated the ability to quickly learn and apply intricate research methodologies in a time-intensive academic environment.' },
                 { name: 'Autonomy & Initiative', icon: 'fas fa-user-check', reason: 'Was entrusted to work without direct supervision, taking full ownership of conducting sessions and managing participant groups.' },
-                { name: 'Teamwork', icon: 'fas fa-people-arrows', reason: 'Fostered a positive and collaborative environment by proactively assisting the visiting research team beyond official duties.' }
+                { name: 'Teamwork', icon: 'fas fa-people-arrows', reason: 'Fostered a positive and collaborative environment by proactively assisting the visiting research team beyond official duties.' },
+                { name: 'On-the-Fly Problem-Solving', icon: 'fas fa-lightbulb', reason: 'Quickly and effectively resolved logistical and interpersonal challenges that arose during live research sessions in the field.' }
             ],
             backgroundImage: 'images/ucb-detail-bg.jpg'
         },
@@ -62,13 +61,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 { name: 'Psychological First Aid (PFA)', icon: 'fas fa-hands-helping', reason: 'Prepared immediate-response therapeutic activities based on PFA principles to provide comfort and support to cyclone survivors.' },
                 { name: 'Therapeutic Activity Design', icon: 'fas fa-drafting-compass', reason: 'Architected a full suite of activities using Art, Narrative, and Mind-Body therapies to address the specific psychological needs of disaster survivors.' },
                 { name: 'Mental Health Screening', icon: 'fas fa-heartbeat', reason: 'Utilized established mental screening tools as a basis for designing targeted interventions for the rehabilitation program.' },
-                { name: 'Trauma-Informed Care', icon: 'fas fa-heart', reason: 'Applied a deep understanding of trauma to create sensitive and effective therapeutic activities suitable for a vulnerable population.' }
+                { name: 'Trauma-Informed Care', icon: 'fas fa-heart', reason: 'Applied a deep understanding of trauma to create sensitive and effective therapeutic activities suitable for a vulnerable population.' },
+                { name: 'Program Development', icon: 'fas fa-cogs', reason: 'Contributed to the foundational development of a large-scale mental health intervention program for a vulnerable community.'}
             ],
             softSkills: [
                 { name: 'Diligence & Dedication', icon: 'fas fa-check-double', reason: 'Recognized for a highly committed work ethic in preparing the foundational components of a critical community project.' },
                 { name: 'Focus & Concentration', icon: 'fas fa-bullseye', reason: 'Maintained deep focus while developing complex psychological interventions in a high-stakes collaboration with Gujarat Police.' },
                 { name: 'Empathy & Sensitivity', icon: 'fas fa-comment-dots', reason: 'Designed all interventions with a high degree of empathy, ensuring they were appropriate and supportive for individuals who have experienced trauma.' },
-                { name: 'Reliability', icon: 'fas fa-user-shield', reason: 'Was trusted to create the core therapeutic activities that the entire rehabilitation project was built upon.' }
+                { name: 'Reliability', icon: 'fas fa-user-shield', reason: 'Was trusted to create the core therapeutic activities that the entire rehabilitation project was built upon.' },
+                { name: 'Emotional Resilience', icon: 'fas fa-shield-alt', reason: 'Worked effectively with sensitive subject matter related to trauma while maintaining professional focus and personal well-being.'}
             ],
             backgroundImage: 'images/sambhav-detail-bg.jpg'
         },
@@ -130,6 +131,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 { name: 'AI Project Lead', icon: 'fas fa-user-tie', reason: 'Acted as the project director, providing the vision and instructions for Google Gemini to execute the technical development from the ground up.' },
                 { name: 'Audience-Specific Design', icon: 'fas fa-users', reason: 'Designed the webpage specifically for psychology students, showing an ability to think about a target audience and create a tool that meets their needs.' }
             ],
+            technicalSkills: [
+                { name: 'AI-Powered Development', icon: 'fas fa-robot', reason: 'Proven ability to successfully manage the creation of a web application using a generative AI as a development partner.' },
+                { name: 'Prompt Engineering', icon: 'fas fa-terminal', reason: 'Learned and applied the core skill of writing clear and effective instructions to get a complex result from an AI.' },
+                { name: 'Rapid Prototyping', icon: 'fas fa-bolt', reason: 'Demonstrated the ability to take an idea and turn it into a finished, working product quickly and efficiently.' },
+                { name: 'Project Execution', icon: 'fas fa-clipboard-check', reason: 'Managed this project from the initial idea to the final deployed website, showing the ability to see a project through to completion independently.' }
+            ],
             softSkills: [
                 { name: 'Initiative', icon: 'fas fa-star', reason: 'Identified an opportunity to stand out and built a solution from scratch, without waiting to be assigned a project.' },
                 { name: 'Innovative Thinking', icon: 'fas fa-brain', reason: 'Found a new and better way to approach a challenge (applying for a program) by using technology creatively.' },
@@ -153,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ],
             technicalSkills: [
                 { name: 'Conditional Logic', icon: 'fas fa-code-branch', reason: 'Built the core IF/ELSE logic that powers the platform (e.g., IF user is new, show QR page, ELSE show notes page).' },
-                { name: 'Client-Side State Management', icon: 'fas fa-save', reason: 'Implemented logic to remember verified users on their device via browser storage for repeat visits.' },
+                { name: 'Client-Side State Management', icon: 'fas fa-save', reason: 'Implemented the mechanism to "remember" a user on a specific device after they complete the tasks, using browser storage.' },
                 { name: 'Frontend Development', icon: 'fas fa-desktop', reason: 'Built the entire user-facing experience, including the gated landing pages, the task sequence, and the final notes pages.' },
                 { name: 'UI/UX Design', icon: 'fas fa-bezier-curve', reason: 'Designed the user flow from start to finish, guiding the user through a series of steps to reach their goal.' }
             ],
@@ -221,6 +228,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 { name: 'Conflict of Interest', icon: 'fas fa-balance-scale', reason: 'Trained to identify and manage potential conflicts of interest to ensure research integrity.' }
             ],
             backgroundImage: 'images/citi-detail-bg.jpg'
+        },
+        makingOf: {
+            title: "The Making Of This Portfolio",
+            synopsis: "This portfolio is a real-world case study in modern product development, built to showcase a unique workflow: a clear human vision guiding a powerful generative AI to create a beautiful, functional, and immersive user experience. The process was a testament to iterative design, persistent debugging, and the relentless pursuit of a pixel-perfect final product, demonstrating that the most crucial skill in the age of AI is the ability to direct the tools with precision and a strong sense of design.",
+            keyContributions: [
+                { name: 'Tushar Joshi', icon: 'fas fa-user-tie', reason: 'Project Director & AI Prompt Engineer. Responsible for the core vision, design direction, and the iterative process of refining AI-generated code to achieve a pixel-perfect final product.' },
+                { name: 'Google Gemini', icon: 'fas fa-robot', reason: 'Lead Developer & Code Generation. Responsible for translating natural language prompts and design requirements into functional HTML, CSS, and JavaScript code.' }
+            ],
+            productAndStrategySkills: [
+                 { name: 'Iterative Design & Prototyping', icon: 'fas fa-sync-alt', reason: 'Engaged in an extensive back-and-forth process of generating, testing, and refining every visual and functional detail of the portfolio.' },
+                 { name: 'UI/UX Analysis', icon: 'fas fa-search', reason: 'Demonstrated a keen eye for detail by identifying and flagging layout breaks, alignment issues, and design inconsistencies for correction.' },
+                 { name: 'Strategic Branding', icon: 'fas fa-bullseye', reason: 'Made key decisions regarding logos, color schemes, and content presentation to build a cohesive and professional personal brand.' },
+                 { name: 'Project Management', icon: 'fas fa-clipboard-list', reason: 'Oversaw the project from initial concept to final deployment, managing tasks and iterative feedback loops with the AI developer.' },
+                 { name: 'Creative Direction', icon: 'fas fa-palette', reason: 'Defined and maintained the portfolio\'s visual identity, including theme, layout, typography, and color palette.' },
+                 { name: 'User Experience Design', icon: 'fas fa-map-signs', reason: 'Architected the overall user journey, from the main gallery to the detailed project views, ensuring a seamless and intuitive navigation experience.' }
+            ],
+            technicalSkills: [
+                 { name: 'Prompt Engineering', icon: 'fas fa-terminal', reason: 'The core technical skill used to direct the AI with precise, effective instructions to generate the desired code and content.' },
+                 { name: 'AI-Powered Development', icon: 'fas fa-robot', reason: 'Managed the end-to-end creation of a complex web application by acting as the human director for a generative AI developer.' },
+                 { name: 'Debugging & Fault Tolerance', icon: 'fas fa-bug', reason: 'Showed persistence in reporting and helping to fix functional bugs until the project was flawless and robust.' },
+                 { name: 'Quality Assurance', icon: 'fas fa-check-double', reason: 'Conducted rigorous testing and visual reviews at every stage to ensure a high-quality, bug-free, and pixel-perfect final product.' },
+                 { name: 'AI Workflow Management', icon: 'fas fa-cogs', reason: 'Developed and refined a unique workflow for collaborating with a generative AI on a complex software project.' },
+                 { name: 'Frontend Architecture', icon: 'fas fa-sitemap', reason: 'Directed the structural organization of the project\'s code, ensuring HTML, CSS, and JavaScript worked cohesively to create a responsive and performant site.' }
+            ],
+            backgroundImage: 'images/making-of-detail-bg.jpg'
         }
     };
     
@@ -231,36 +263,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const educationView = document.getElementById('education-view');
     const skillsView = document.getElementById('skills-view');
     const aboutView = document.getElementById('about-view');
-    
-    // Store all content views in an array for easy iteration
-    const contentViews = [mainContent, educationView, skillsView, aboutView];
-
     let tooltip = null; 
     let scrollPosition = 0;
-
-    // Function to hide all views (used for transitioning to detail view)
-    function hideAllViews() {
-        contentViews.forEach(view => {
-            view.classList.add('hidden');
-        });
-        // We clear the detail view immediately for clarity
-        detailViewContainer.innerHTML = ''; 
-    }
-
-    // Function to show a specific view (REMOVED ANIMATION LOGIC)
-    function showView(viewElement) {
-        // Find the currently visible section to hide it
-        const currentVisibleView = contentViews.find(view => !view.classList.contains('hidden'));
-        
-        // 1. If a view is currently visible, hide it instantly.
-        if (currentVisibleView) {
-            currentVisibleView.classList.add('hidden');
-        }
-
-        // 2. Show the target view instantly.
-        viewElement.classList.remove('hidden');
-    }
-
 
     function showDetailView(id) {
         scrollPosition = window.scrollY;
@@ -316,22 +320,22 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
 
-        // Hide all main sections instantly before showing the detail view animation
-        hideAllViews(); 
+        mainContent.classList.add('hidden');
+        educationView.classList.add('hidden');
+        skillsView.classList.add('hidden');
+        aboutView.classList.add('hidden');
         detailViewContainer.innerHTML = detailHtml;
         document.querySelector('.back-btn').addEventListener('click', hideDetailView);
         setupTooltips();
     }
 
     function hideDetailView() {
-        showView(mainContent); // Use showView for smooth transition back to main content
+        mainContent.classList.remove('hidden');
         detailViewContainer.innerHTML = '';
         window.scrollTo(0, scrollPosition);
         
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
         document.getElementById('home-link').classList.add('active');
-        document.getElementById('education-link').classList.remove('active');
-        document.getElementById('skills-link').classList.remove('active');
-        document.getElementById('about-link').classList.remove('active');
     }
 
     function createTooltip() {
@@ -378,36 +382,35 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const linkId = e.currentTarget.id;
 
-        // 1. Update active state instantly
         document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
         e.currentTarget.classList.add('active');
-        
-        // 2. Determine which view to show
-        let targetView = mainContent;
-        if (linkId === 'education-link') {
-            targetView = educationView;
-        } else if (linkId === 'skills-link') {
-            targetView = skillsView;
-        } else if (linkId === 'about-link') {
-            targetView = aboutView;
-        }
 
-        // 3. Clear detail view instantly and trigger instant display change
-        detailViewContainer.innerHTML = '';
-        showView(targetView);
+        // Hide all views first
+        mainContent.classList.add('hidden');
+        educationView.classList.add('hidden');
+        skillsView.classList.add('hidden');
+        aboutView.classList.add('hidden');
+        detailViewContainer.innerHTML = ''; // Clear detail view
+
+        // Use a tiny timeout to allow the exit animation to start before the enter animation
+        setTimeout(() => {
+            if (linkId === 'home-link' || linkId === 'logo-link') {
+                mainContent.classList.remove('hidden');
+            } else if (linkId === 'education-link') {
+                educationView.classList.remove('hidden');
+            } else if (linkId === 'skills-link') {
+                skillsView.classList.remove('hidden');
+            } else if (linkId === 'about-link') {
+                aboutView.classList.remove('hidden');
+            }
+        }, 50); // A small delay is enough
     }
-
-    navLinks.forEach(link => {
-        if (!link.href.includes('mailto:')) {
-             link.addEventListener('click', handleNavClick);
-        }
+    
+    document.querySelectorAll('.nav-link, #logo-link').forEach(link => {
+        link.addEventListener('click', handleNavClick);
     });
-    document.getElementById('logo-link').addEventListener('click', (e) => {
-        e.preventDefault();
-        document.getElementById('home-link').click(); // Simulate click on Home link for instant change
-    });
-
 
     createTooltip();
     setupTooltips();
 });
+

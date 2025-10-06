@@ -4,6 +4,7 @@
     --text-light: #f5f5f5;
     --text-grey: #999;
     --timeline-dot-color: #e5e5e5;
+    --smooth-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 body {
@@ -12,64 +13,86 @@ body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0;
     overflow-x: hidden;
+    /* ADDED: Center the fixed-width layout */
+    display: flex;
+    justify-content: center;
 }
 
-/* ------------------------------------------------------------------ */
-/* CORE ANIMATION FIX: Animation is now on .content-wrapper ONLY */
-/* ------------------------------------------------------------------ */
-
-/* 1. Base Container: Back to simple block visibility */
-#main-content,
-#education-view,
-#skills-view,
-#about-view {
-    padding-top: 90px; /* Space below fixed nav */
-    position: static;
-    display: block; 
-    transition: none; /* No animation on the outer container */
+/* ADDED: Styles for the mobile message */
+#mobile-message {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--netflix-black);
+    color: var(--text-light);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    z-index: 9999;
 }
 
-/* 2. Hidden State: Use standard hide method */
+.message-content {
+    max-width: 300px;
+}
+
+.message-content i {
+    font-size: 4rem;
+    color: var(--netflix-red);
+    margin-bottom: 20px;
+}
+
+.message-content h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* ADDED: Wrapper for the desktop site */
+#desktop-site-wrapper {
+    width: 100%;
+    max-width: 1920px; /* Or your preferred max desktop width */
+    min-width: 1024px; /* The minimum width for the desktop layout */
+    position: relative;
+}
+
+
+/* MODIFIED: Page Transition Styles */
+#main-content, #education-view, #skills-view, #about-view {
+    transition: opacity 0.4s var(--smooth-ease), transform 0.4s var(--smooth-ease);
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
 #main-content.hidden,
 #education-view.hidden,
 #skills-view.hidden,
 #about-view.hidden {
-    display: none;
-}
-
-/* 3. The Animated Wrapper: This inner div slides up and fades in */
-.content-wrapper {
-    /* Set starting animation state (hidden and below viewport) */
     opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    
-    /* Animation speed: Fast 0.3s for mobile-like feel, ease-out for smooth stop */
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-out, visibility 0.3s ease-in-out;
+    pointer-events: none;
+    max-height: 0; 
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    transform: scale(0.98) translateY(-10px);
 }
-
-/* 4. Active State: When the content-wrapper is contained in a visible parent */
-#main-content:not(.hidden) .content-wrapper,
-#education-view:not(.hidden) .content-wrapper,
-#skills-view:not(.hidden) .content-wrapper,
-#about-view:not(.hidden) .content-wrapper {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0); /* Slides up to resting position */
-}
-/* ------------------------------------------------------------------ */
 
 
 .main-nav {
     position: fixed;
     top: 0;
     width: 100%;
+    max-width: inherit; /* Make nav respect the wrapper width */
     z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 4%;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.4s var(--smooth-ease);
     background: linear-gradient(to bottom, rgba(20, 20, 20, 1) 0%, rgba(20, 20, 20, 0.8) 50%, transparent 100%);
     height: 90px;
     box-sizing: border-box;
@@ -106,7 +129,7 @@ body {
     font-size: 0.9rem;
     cursor: pointer;
     position: relative;
-    transition: color 0.2s ease, text-shadow 0.2s ease, transform 0.2s ease;
+    transition: color 0.3s var(--smooth-ease), transform 0.3s var(--smooth-ease);
 }
 
 .nav-link:hover {
@@ -129,11 +152,11 @@ body {
 .profile-icon {
     font-size: 1.8rem;
     color: #e5e5e5;
-    transition: color 0.2s ease-in-out;
+    transition: color 0.3s var(--smooth-ease);
 }
 
 .profile-icon i {
-    transition: color 0.2s ease-in-out, background 0.2s ease-in-out;
+    transition: color 0.3s var(--smooth-ease), background 0.3s var(--smooth-ease);
 }
 
 .profile-icon.linkedin:hover i {
@@ -194,6 +217,12 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 10px;
+    transition: transform 0.2s var(--smooth-ease), box-shadow 0.2s var(--smooth-ease);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
 .btn-primary {
@@ -245,9 +274,10 @@ body {
     margin: 0 10px;
     border-radius: 4px;
     overflow: visible;
-    transition: all 0.2s ease-in-out;
+    transition: transform 0.3s var(--smooth-ease), box-shadow 0.3s var(--smooth-ease);
     cursor: pointer;
     position: relative;
+    will-change: transform, box-shadow;
 }
 
 .card:hover {
@@ -262,7 +292,7 @@ body {
     border-radius: 4px;
     overflow: hidden;
     position: relative;
-    transition: all 0.2s ease-in-out;
+    transition: border-color 0.3s var(--smooth-ease);
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -270,7 +300,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: filter 0.2s ease-in-out;
+    transition: filter 0.3s var(--smooth-ease);
 }
 
 .card:hover img {
@@ -289,7 +319,7 @@ body {
     font-weight: bold;
     color: white;
     opacity: 0;
-    transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.3s var(--smooth-ease);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 }
 
@@ -305,7 +335,7 @@ body {
     height: 100vh;
     z-index: 2000;
     opacity: 0;
-    animation: fadeIn 0.5s forwards;
+    animation: fadeIn 0.5s forwards var(--smooth-ease);
     background-color: var(--netflix-black);
 }
 
@@ -329,6 +359,12 @@ body {
     font-size: 1.2rem;
     cursor: pointer;
     z-index: 2001;
+    transition: transform 0.2s var(--smooth-ease), background-color 0.2s var(--smooth-ease);
+}
+
+.back-btn:hover {
+    transform: scale(1.1);
+    background-color: rgba(229, 9, 20, 0.8);
 }
 
 .detail-content-wrapper {
@@ -409,7 +445,7 @@ body {
     padding: 1rem;
     text-align: center;
     position: relative;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    transition: transform 0.3s var(--smooth-ease), box-shadow 0.3s var(--smooth-ease);
 }
 
 .skill-card:hover {
@@ -440,13 +476,13 @@ body {
     border-radius: 5px;
     font-size: 0.9rem;
     line-height: 1.4;
-    max-width: 250px;
+    max-width: 400px;
     text-align: left;
     z-index: 3000;
     pointer-events: none;
     opacity: 0;
     transform: translate(-50%, -110%);
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition: opacity 0.3s var(--smooth-ease), transform 0.3s var(--smooth-ease);
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
@@ -499,11 +535,12 @@ body {
     height: 22px;
     background-color: var(--timeline-dot-color);
     border-radius: 50%;
-    transition: box-shadow 0.2s ease-in-out;
+    transition: box-shadow 0.3s var(--smooth-ease), transform 0.3s var(--smooth-ease);
 }
 
 .timeline-item:hover .timeline-dot {
     box-shadow: 0 0 25px 8px rgba(229, 9, 20, 0.6);
+    transform: scale(1.1);
 }
 
 .timeline-content {
@@ -513,7 +550,7 @@ body {
     border-radius: 8px;
     color: white;
     border-left: 3px solid var(--netflix-red);
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.3s var(--smooth-ease);
 }
 
 .timeline-item:hover .timeline-content {
@@ -579,17 +616,18 @@ body {
     padding: 25px;
     text-align: left;
     border-top: 4px solid var(--netflix-red);
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.3s var(--smooth-ease), box-shadow 0.3s var(--smooth-ease);
 }
 
 .skill-card-fullpage:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
 }
 
 .skill-card-fullpage i,
 .skill-card-fullpage h4,
 .skill-card-fullpage p {
-    transition: transform 0.2s ease-in-out, text-shadow 0.2s ease-in-out;
+    transition: transform 0.3s var(--smooth-ease), text-shadow 0.3s var(--smooth-ease), font-weight 0.3s var(--smooth-ease), color 0.3s var(--smooth-ease);
 }
 
 
@@ -597,6 +635,16 @@ body {
 .skill-card-fullpage:hover h4,
 .skill-card-fullpage:hover p {
     text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.skill-card-fullpage:hover h4 {
+    font-weight: bold;
+    transform: scale(1.05);
+}
+
+.skill-card-fullpage:hover p {
+    transform: scale(1.02);
+    color: var(--text-light);
 }
 
 .skill-card-fullpage i {
@@ -661,3 +709,4 @@ body {
     color: #ccc;
     margin-top: 0;
 }
+
