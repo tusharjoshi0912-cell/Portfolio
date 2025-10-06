@@ -1,34 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
     const overlay = document.getElementById('mobile-block-overlay');
 
-    function isMobile() {
-        const ua = navigator.userAgent || navigator.vendor || window.opera;
+    function isMobileHardware() {
+        const ua = navigator.userAgent.toLowerCase();
 
-        // Mobile user agents
-        const isMobileUA = /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua.toLowerCase());
+        // True mobile devices via UA
+        const isMobileUA = /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/.test(ua);
 
-        // Touch-enabled devices
-        const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 1);
+        // Detect touch capability (most phones have >1 touch point)
+        const hasTouch = navigator.maxTouchPoints && navigator.maxTouchPoints > 1;
 
-        // Small screens (for large phones/tablets)
-        const isSmallScreen = Math.min(window.innerWidth, window.innerHeight) < 981;
+        // Optional: check small screen size (to avoid large desktops with touch)
+        const isSmallScreen = Math.min(window.innerWidth, window.innerHeight) < 1024;
 
-        return isMobileUA || (isTouch && isSmallScreen);
+        // Combine checks: only true phones/tablets are blocked
+        return (isMobileUA && hasTouch && isSmallScreen);
     }
 
-    function checkMobileBlock() {
-        if (isMobile()) {
-            // Show overlay and block scrolling
+    function handleMobileBlock() {
+        if (isMobileHardware()) {
             overlay.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         } else {
-            // Desktop/laptop: hide overlay
             overlay.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
     }
 
-    checkMobileBlock();
-    window.addEventListener('resize', checkMobileBlock);
-    window.addEventListener('orientationchange', checkMobileBlock);
+    handleMobileBlock();
+    window.addEventListener('resize', handleMobileBlock);
+    window.addEventListener('orientationchange', handleMobileBlock);
 });

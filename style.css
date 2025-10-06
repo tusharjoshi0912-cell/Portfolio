@@ -719,7 +719,7 @@ body {
     background-color: #000;
     color: #fff;
     z-index: 999999;
-    display: none; /* JS will show only on mobile devices */
+    display: none; /* JS will show it only on mobile devices */
     justify-content: center;
     align-items: center;
     flex-direction: column;
