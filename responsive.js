@@ -1,48 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Get all the necessary elements from the page
-    const mobileMessage = document.getElementById('mobile-message');
-    const desktopSiteWrapper = document.getElementById('desktop-site-wrapper');
+    // Get the banner and its close button from the page
     const warningBanner = document.getElementById('mobile-warning-banner');
     const closeBannerBtn = document.getElementById('close-banner-btn');
 
-    function checkDevice() {
-        // This is the threshold to decide what is "mobile"
-        if (window.innerWidth < 981) {
-            // --- This is MOBILE view ---
-            // Show the "Please Enable Desktop Mode" message
-            mobileMessage.style.display = 'flex';
-            desktopSiteWrapper.style.display = 'none';
+    // This function checks if the user is on a mobile device
+    function isMobileDevice() {
+        // This looks for common keywords in the browser's description of itself
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
 
-            // ALSO, show our new yellow warning banner
-            if (warningBanner) {
-                warningBanner.style.display = 'flex';
-            }
-
-        } else {
-            // --- This is DESKTOP view ---
-            // Hide the "Enable Desktop Mode" message
-            mobileMessage.style.display = 'none';
-            desktopSiteWrapper.style.display = 'block';
-            
-            // HIDE the yellow warning banner on desktop
-            if (warningBanner) {
-                warningBanner.style.display = 'none';
-            }
+    // --- Main Logic ---
+    // If the function detects a mobile device...
+    if (isMobileDevice()) {
+        // ...show the yellow warning banner.
+        if (warningBanner) {
+            warningBanner.style.display = 'flex';
+        }
+    } else {
+        // Otherwise (if it's a desktop/laptop), make sure the banner is hidden.
+         if (warningBanner) {
+            warningBanner.style.display = 'none';
         }
     }
 
-    // Add a click event to the close button
+    // Add a click event to the banner's close button
     if (closeBannerBtn) {
         closeBannerBtn.addEventListener('click', () => {
             if (warningBanner) {
-                warningBanner.style.display = 'none'; // Hide the banner when clicked
+                warningBanner.style.display = 'none'; // Hide the banner when the 'x' is clicked
             }
         });
     }
-
-    // Check on initial load
-    checkDevice();
-
-    // Check again if the window is resized
-    window.addEventListener('resize', checkDevice);
 });
