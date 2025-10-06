@@ -1,27 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const mobileOverlay = document.getElementById('mobile-block-overlay');
+    const overlay = document.getElementById('mobile-block-overlay');
 
-    function isMobileDevice() {
-        // Detect true mobile devices only via user agent
+    function isMobile() {
         const ua = navigator.userAgent || navigator.vendor || window.opera;
-        return /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua.toLowerCase());
+
+        // Mobile user agents
+        const isMobileUA = /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua.toLowerCase());
+
+        // Touch-enabled devices
+        const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 1);
+
+        // Small screens (for large phones/tablets)
+        const isSmallScreen = Math.min(window.innerWidth, window.innerHeight) < 981;
+
+        return isMobileUA || (isTouch && isSmallScreen);
     }
 
-    function handleDisplay() {
-        if (isMobileDevice()) {
-            // Always show overlay on mobile devices, even in desktop mode
-            mobileOverlay.style.display = 'flex';
+    function checkMobileBlock() {
+        if (isMobile()) {
+            // Show overlay and block scrolling
+            overlay.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         } else {
-            // Laptops & desktops: normal site
-            mobileOverlay.style.display = 'none';
+            // Desktop/laptop: hide overlay
+            overlay.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
     }
 
-    // Run on page load
-    handleDisplay();
-
-    // Optional: handle orientation change on mobile
-    window.addEventListener('orientationchange', handleDisplay);
+    checkMobileBlock();
+    window.addEventListener('resize', checkMobileBlock);
+    window.addEventListener('orientationchange', checkMobileBlock);
 });

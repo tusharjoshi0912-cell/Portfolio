@@ -727,7 +727,6 @@ body {
     padding: 2rem;
     box-sizing: border-box;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    animation: fadeIn 0.8s ease-in-out forwards;
 }
 
 #mobile-block-overlay .overlay-content {
@@ -752,11 +751,6 @@ body {
     color: #ddd;
     font-size: 1.05rem;
     line-height: 1.8;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
 }
 
 html, body {
