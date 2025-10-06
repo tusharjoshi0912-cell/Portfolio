@@ -1,18 +1,13 @@
-export default function handler(req, res) {
-    const userAgent = req.headers['user-agent'] || '';
-
-    // Detect mobile devices
-    const isMobile = /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase());
+(function() {
+    // Check the user agent
+    var isMobile = /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase());
 
     if (isMobile) {
-        // If mobile, return a static "Desktop Only" page
-        res.status(200).send(`
-            <!DOCTYPE html>
-            <html lang="en">
+        // Mobile detected → replace page content with Desktop Only message
+        document.documentElement.innerHTML = `
             <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>Desktop Only</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <style>
                     body {
                         background-color: #000;
@@ -34,13 +29,12 @@ export default function handler(req, res) {
             <body>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Logo">
                 <h1>We’re Very Sorry!</h1>
-                <p>This website is carefully designed for desktop use. Mobile access, even in desktop mode, is not supported. Please use a laptop or desktop computer for the best experience. Thank you for understanding.</p>
+                <p>
+                  This website is designed solely for desktop use. Mobile access, 
+                  even in desktop mode, is not supported. Please use a laptop or desktop computer for the best experience. 
+                  Thank you for your understanding.
+                </p>
             </body>
-            </html>
-        `);
-        return;
+        `;
     }
-
-    // Otherwise, redirect to homepage
-    res.redirect('/');
-}
+})();
