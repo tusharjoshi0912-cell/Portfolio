@@ -2,13 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileOverlay = document.getElementById('mobile-block-overlay');
 
     function isMobileDevice() {
-        // Detects true mobile devices, even if desktop mode is enabled
         const ua = navigator.userAgent || navigator.vendor || window.opera;
         const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        const isSmallScreen = Math.min(window.innerWidth, window.innerHeight) < 980;
-        const isRealMobile = /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua);
+        const isSmallScreen = Math.min(window.innerWidth, window.innerHeight) < 981;
+        const isMobileUA = /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua);
 
-        return isRealMobile || isTouch || isSmallScreen;
+        return isMobileUA || isTouch || isSmallScreen;
     }
 
     function handleDisplay() {
@@ -21,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Run on page load and on resize/orientation changes
     handleDisplay();
     window.addEventListener('resize', handleDisplay);
     window.addEventListener('orientationchange', handleDisplay);

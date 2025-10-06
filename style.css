@@ -720,12 +720,11 @@ body {
     background-color: #000;
     color: #fff;
     z-index: 999999;
-    display: none; /* JS will turn this on */
+    display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
-    overflow: hidden;
     padding: 2rem;
     box-sizing: border-box;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -733,19 +732,8 @@ body {
 }
 
 #mobile-block-overlay .overlay-content {
-    max-width: 700px;
-}
-
-#mobile-block-overlay h1 {
-    color: #e50914;
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-}
-
-#mobile-block-overlay p {
-    color: #ccc;
-    font-size: 1rem;
-    line-height: 1.6;
+    max-width: 720px;
+    width: 90%;
 }
 
 .netflix-logo {
@@ -754,14 +742,29 @@ body {
     filter: brightness(1.3);
 }
 
+#mobile-block-overlay h1 {
+    color: #e50914;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+}
+
+#mobile-block-overlay p {
+    color: #ddd;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-/* Force mobile browsers to respect full height */
+/* Guarantee full coverage even on large screens */
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
