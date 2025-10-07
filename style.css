@@ -971,9 +971,18 @@ body {
         font-size: 3rem;
     }
 
-/* --- START: FULL MOBILE HOVER RESET --- */
+/* --- START: DEFINITIVE FIX FOR MOBILE ENLARGEMENT --- */
 
-/* Stop ALL container movement, shadows, and background changes */
+/* Step 1: The REAL FIX - Remove 'transform' from the CSS transition on mobile */
+.skill-card-fullpage,
+.about-card,
+.card,
+.timeline-item .timeline-content,
+.timeline-item .timeline-dot {
+    transition: box-shadow 0.3s var(--smooth-ease), background 0.3s var(--smooth-ease) !important;
+}
+
+/* Step 2: Forcefully disable all hover/active effects as a backup */
 .timeline-item:hover .timeline-content, .timeline-item:active .timeline-content,
 .timeline-item:hover .timeline-dot, .timeline-item:active .timeline-dot,
 .skill-card-fullpage:hover, .skill-card-fullpage:active,
@@ -983,12 +992,11 @@ body {
     box-shadow: none !important;
 }
 
-/* Specifically reset the about card background */
+/* Step 3: Explicitly reset any other styles that might have hover effects */
 .about-card:hover, .about-card:active {
     background: rgba(34, 34, 34, 0.65) !important;
 }
 
-/* Stop ALL text movement and style changes within containers */
 .skill-card-fullpage:hover h4, .skill-card-fullpage:active h4,
 .skill-card-fullpage:hover p, .skill-card-fullpage:active p,
 .about-card:hover h3, .about-card:active h3,
@@ -999,7 +1007,6 @@ body {
     text-shadow: none !important;
 }
 
-/* Stop project card image effects (darkening and text overlay) */
 .card:hover img, .card:active img {
     filter: none !important;
 }
@@ -1007,6 +1014,6 @@ body {
     opacity: 0 !important;
 }
 
-/* --- END: FULL MOBILE HOVER RESET --- */
+/* --- END: DEFINITIVE FIX FOR MOBILE ENLARGEMENT --- */
 }
 
