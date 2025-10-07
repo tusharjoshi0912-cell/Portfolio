@@ -971,40 +971,18 @@ body {
         font-size: 3rem;
     }
 
-/* --- START: MOBILE ANIMATION & HOVER DISABLE --- */
+    .card:hover,
+    .skill-card-fullpage:hover,
+    .about-card:hover {
+        transform: none; /* FINAL FIX: Prevents container from growing/moving */
+    }
 
-/* The most important part: Turn OFF all animations for interactive elements on mobile */
-.skill-card-fullpage,
-.about-card,
-.card,
-.timeline-item .timeline-content,
-.timeline-item .timeline-dot,
-.nav-link,
-.btn {
-    transition: none !important;
-}
-
-/* As a failsafe, this part resets any visual changes from hover/tap */
-.timeline-item:hover .timeline-content, .timeline-item:active .timeline-content,
-.timeline-item:hover .timeline-dot, .timeline-item:active .timeline-dot,
-.skill-card-fullpage:hover, .skill-card-fullpage:active,
-.about-card:hover, .about-card:active,
-.card:hover, .card:active {
-    transform: none !important;
-    box-shadow: none !important;
-}
-
-.about-card:hover, .about-card:active {
-    background: rgba(34, 34, 34, 0.65) !important;
-}
-
-.card:hover img, .card:active img {
-    filter: none !important;
-}
-.card:hover span, .card:active span {
-    opacity: 0 !important;
-}
-
-/* --- END: MOBILE ANIMATION & HOVER DISABLE --- */
+    .skill-card-fullpage:hover h4,
+    .skill-card-fullpage:hover p,
+    .about-card:hover p,
+    .about-card:hover h3,
+    .about-card:hover h4 {
+        transform: none; /* FINAL FIX: Prevents text from moving */
+    }
 }
 
