@@ -971,18 +971,42 @@ body {
         font-size: 3rem;
     }
 
-    .card:hover,
-    .skill-card-fullpage:hover,
-    .about-card:hover {
-        transform: none; /* FINAL FIX: Prevents container from growing/moving */
+    /* --- COMPLETE MOBILE TOUCH FIX --- */
+    /* Prevents containers and their content in the Skills & About sections 
+       from scaling, moving, or changing styles on tap-and-hold. */
+
+    /* Target the main card containers */
+    .skill-card-fullpage:active, .skill-card-fullpage:hover,
+    .about-card:active, .about-card:hover {
+        transform: none !important;
+        box-shadow: none !important;
     }
 
-    .skill-card-fullpage:hover h4,
-    .skill-card-fullpage:hover p,
-    .about-card:hover p,
-    .about-card:hover h3,
-    .about-card:hover h4 {
-        transform: none; /* FINAL FIX: Prevents text from moving */
+    /* Specifically reset background for the about card */
+    .about-card:active, .about-card:hover {
+        background: rgba(34, 34, 34, 0.65) !important;
+    }
+    
+    /* Target the text elements inside the cards */
+    .skill-card-fullpage:active *, .skill-card-fullpage:hover *,
+    .about-card:active *, .about-card:hover * {
+        transform: none !important;
+        text-shadow: none !important;
+    }
+    
+    /* Reset text colors to their original state */
+    .skill-card-fullpage:active h4, .skill-card-fullpage:hover h4,
+    .about-card:active h3, .about-card:hover h3,
+    .about-card:active h4, .about-card:hover h4 {
+        color: var(--text-light) !important;
+    }
+
+    .skill-card-fullpage:active p, .skill-card-fullpage:hover p {
+        color: var(--text-grey) !important;
+    }
+    
+    .about-card:active p, .about-card:hover p {
+        color: #e5e5e5 !important;
     }
 }
 
