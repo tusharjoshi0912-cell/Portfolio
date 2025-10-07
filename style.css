@@ -971,18 +971,11 @@ body {
         font-size: 3rem;
     }
 
-    .card:hover, .card:active,
+.timeline-item:hover .timeline-content, .timeline-item:active .timeline-content,
 .skill-card-fullpage:hover, .skill-card-fullpage:active,
-.about-card:hover, .about-card:active {
-    transform: none !important; 
+.about-card:hover, .about-card:active,
+.card:hover, .card:active {
+    transform: none !important;
 }
-
-    .skill-card-fullpage:hover h4,
-    .skill-card-fullpage:hover p,
-    .about-card:hover p,
-    .about-card:hover h3,
-    .about-card:hover h4 {
-        transform: none; /* FINAL FIX: Prevents text from moving */
-    }
 }
 
