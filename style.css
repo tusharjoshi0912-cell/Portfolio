@@ -971,11 +971,11 @@ body {
         font-size: 3rem;
     }
 
-    .card:hover,
-    .skill-card-fullpage:hover,
-    .about-card:hover {
-        transform: none; /* FINAL FIX: Prevents container from growing/moving */
-    }
+    .card:hover, .card:active,
+.skill-card-fullpage:hover, .skill-card-fullpage:active,
+.about-card:hover, .about-card:active {
+    transform: none !important; 
+}
 
     .skill-card-fullpage:hover h4,
     .skill-card-fullpage:hover p,
