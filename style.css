@@ -886,9 +886,11 @@ body {
     }
 
     .hero-section {
-        background-position: center center;
+        background-image: none; /* MODIFIED FOR MOBILE */
         text-align: center;
         padding-top: 0;
+        align-items: center;
+        justify-content: center;
     }
 
     .hero-content {
@@ -918,7 +920,7 @@ body {
     }
 
     .content-rows {
-        margin-top: -15vh;
+        margin-top: 5vh; /* Adjusted for no-hero-image layout */
     }
 
     .card {
@@ -969,5 +971,18 @@ body {
         font-size: 3rem;
     }
 
+    .card:hover,
+    .skill-card-fullpage:hover,
+    .about-card:hover {
+        transform: none; /* FINAL FIX: Prevents container from growing/moving */
+    }
+
+    .skill-card-fullpage:hover h4,
+    .skill-card-fullpage:hover p,
+    .about-card:hover p,
+    .about-card:hover h3,
+    .about-card:hover h4 {
+        transform: none; /* FINAL FIX: Prevents text from moving */
+    }
 }
 
