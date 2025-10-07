@@ -971,18 +971,20 @@ body {
         font-size: 3rem;
     }
 
-/* --- START: DEFINITIVE FIX FOR MOBILE ENLARGEMENT --- */
+/* --- START: MOBILE ANIMATION & HOVER DISABLE --- */
 
-/* Step 1: The REAL FIX - Remove 'transform' from the CSS transition on mobile */
+/* The most important part: Turn OFF all animations for interactive elements on mobile */
 .skill-card-fullpage,
 .about-card,
 .card,
 .timeline-item .timeline-content,
-.timeline-item .timeline-dot {
-    transition: box-shadow 0.3s var(--smooth-ease), background 0.3s var(--smooth-ease) !important;
+.timeline-item .timeline-dot,
+.nav-link,
+.btn {
+    transition: none !important;
 }
 
-/* Step 2: Forcefully disable all hover/active effects as a backup */
+/* As a failsafe, this part resets any visual changes from hover/tap */
 .timeline-item:hover .timeline-content, .timeline-item:active .timeline-content,
 .timeline-item:hover .timeline-dot, .timeline-item:active .timeline-dot,
 .skill-card-fullpage:hover, .skill-card-fullpage:active,
@@ -992,19 +994,8 @@ body {
     box-shadow: none !important;
 }
 
-/* Step 3: Explicitly reset any other styles that might have hover effects */
 .about-card:hover, .about-card:active {
     background: rgba(34, 34, 34, 0.65) !important;
-}
-
-.skill-card-fullpage:hover h4, .skill-card-fullpage:active h4,
-.skill-card-fullpage:hover p, .skill-card-fullpage:active p,
-.about-card:hover h3, .about-card:active h3,
-.about-card:hover h4, .about-card:active h4,
-.about-card:hover p, .about-card:active p {
-    transform: none !important;
-    color: inherit !important;
-    text-shadow: none !important;
 }
 
 .card:hover img, .card:active img {
@@ -1014,6 +1005,6 @@ body {
     opacity: 0 !important;
 }
 
-/* --- END: DEFINITIVE FIX FOR MOBILE ENLARGEMENT --- */
+/* --- END: MOBILE ANIMATION & HOVER DISABLE --- */
 }
 
