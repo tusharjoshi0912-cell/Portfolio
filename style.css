@@ -5,6 +5,12 @@
     --text-grey: #999;
     --timeline-dot-color: #e5e5e5;
     --smooth-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* Settle Animation Variables */
+    --container-move: 12px;
+    --text-move: 12px;
+    --container-duration: 0.56s;
+    --text-duration: 0.50s;
+    --settle-easing: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 body {
@@ -16,7 +22,7 @@ body {
 }
 
 #mobile-warning-banner {
-    display: none; /* Hidden by default, shown by JS on mobile */
+    display: none; 
     position: fixed;
     top: 0;
     left: 0;
@@ -28,20 +34,15 @@ body {
     z-index: 10000;
     border-bottom: 2px solid #fce100;
     box-shadow: 0 0 15px rgba(252, 225, 0, 0.5);
+    display: flex;
     align-items: center;
     justify-content: center;
     font-size: 0.9rem;
     animation: pulse-yellow 2s infinite;
-    box-sizing: border-box;
-}
-
-#mobile-warning-banner.visible {
-    display: flex; /* Class to make it visible */
 }
 
 #mobile-warning-banner i {
     margin-right: 10px;
-    font-size: 1.2rem;
 }
 
 #mobile-warning-banner p {
@@ -62,7 +63,6 @@ body {
     margin-left: 15px;
     opacity: 0.8;
     transition: opacity 0.2s;
-    line-height: 1;
 }
 
 #close-banner-btn:hover {
@@ -1015,5 +1015,3 @@ body {
         color: #e5e5e5 !important;
     }
 }
-
-
