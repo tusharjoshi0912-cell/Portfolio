@@ -1,5 +1,51 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Get all necessary elements from the DOM ---
+
+    // --- ADDED: Device and Orientation Check ---
+    const mobileWarning = document.getElementById('mobile-mode-warning');
+    const orientationWarning = document.getElementById('orientation-warning');
+    const siteWrapper = document.getElementById('desktop-site-wrapper');
+
+    function checkDeviceState() {
+        // This regex is a common way to detect if the user agent string belongs to a mobile device.
+        const isMobileUserAgent = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        
+        // This media query checks if the device's current orientation is portrait.
+        const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+        
+        // This is a heuristic: If the user agent does NOT say it's mobile, we assume it's a desktop or a mobile in "Desktop Site" mode.
+        const isLikelyDesktopMode = !isMobileUserAgent;
+
+        if (isMobileUserAgent) {
+            // STATE 1: User is on a mobile device using a standard mobile browser.
+            // Show the first warning and hide the site.
+            mobileWarning.classList.add('visible');
+            orientationWarning.classList.remove('visible');
+            siteWrapper.style.display = 'none';
+        } else if (isPortrait && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+            // STATE 2: User is likely on mobile in "Desktop Site" mode, but is holding the device vertically.
+            // Show the rotation warning and hide the site.
+            mobileWarning.classList.remove('visible');
+            orientationWarning.classList.add('visible');
+            siteWrapper.style.display = 'none';
+        } else {
+            // STATE 3: User is on a desktop, or on a mobile device in landscape mode.
+            // This is the desired state. Hide all warnings and show the site.
+            mobileWarning.classList.remove('visible');
+            orientationWarning.classList.remove('visible');
+            siteWrapper.style.display = 'block';
+        }
+    }
+
+    // Run the check as soon as the page loads.
+    checkDeviceState();
+
+    // Add an event listener to re-run the check whenever the device orientation changes.
+    window.addEventListener('resize', checkDeviceState);
+    window.addEventListener('orientationchange', checkDeviceState);
+
+
+    // --- Existing Portfolio Logic (Unaffected) ---
+
     const mainContent = document.getElementById('main-content');
     const detailViewContainer = document.getElementById('detail-view-container');
     const mainPageCards = document.querySelectorAll('#main-content .card');
@@ -15,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let tooltip = null; 
     let scrollPosition = 0;
 
-    // --- Data for all portfolio items ---
     const portfolioData = {
         gsa: {
             title: "Google Student Ambassador",
@@ -272,18 +317,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
     
-    // --- MODIFIED: This is the function that now handles showing the detail view, with or without a video ---
     function openProject(id) {
-        // Special case for 'makingOf' project: play video first
         if (id === 'makingOf') {
             playMakingOfIntroAndShowDetail(id);
         } else {
-            // For all other projects, show the detail view directly
             showDetailView(id);
         }
     }
 
-    // --- NEW: Function specifically for the 'makingOf' video intro ---
     function playMakingOfIntroAndShowDetail(id) {
         mainContent.classList.add('hidden');
         makingOfIntroContainer.classList.add('visible');
@@ -294,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }).catch(error => {
             console.error("Error playing 'Making Of' video:", error);
             makingOfIntroContainer.classList.remove('visible');
-            showDetailView(id); // Fallback to showing content directly
+            showDetailView(id);
         });
 
         const onVideoEnd = () => {
@@ -412,67 +453,56 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // MODIFIED: Simplified the card click listener to use the new openProject function
     mainPageCards.forEach(card => {
         card.addEventListener('click', () => {
             const dataId = card.getAttribute('data-id');
-            openProject(dataId); // Use the new handler function
+            openProject(dataId);
         });
     });
 
-    // --- Function to play the intro video and then show the about section ---
     function playAboutIntroAndShowView() {
-        // Hide all other sections first
         mainContent.classList.add('hidden');
         educationView.classList.add('hidden');
         skillsView.classList.add('hidden');
-        aboutView.classList.add('hidden'); // Ensure about view is hidden initially
+        aboutView.classList.add('hidden');
         detailViewContainer.innerHTML = '';
 
-        // Update active nav link
         document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
         document.getElementById('about-link').classList.add('active');
 
-        // Make the video container visible and play the video
         introContainer.classList.add('visible');
-        introVideo.currentTime = 0; // Rewind the video to the start
+        introVideo.currentTime = 0;
 
         introVideo.play().then(() => {
-            introVideo.muted = false; // Attempt to unmute after play starts
+            introVideo.muted = false;
         }).catch(error => {
             console.error("Error attempting to play video:", error);
-            // If play fails, hide video and show the section immediately as a fallback
             introContainer.classList.remove('visible');
             aboutView.classList.remove('hidden');
         });
 
-        // Add a one-time listener for when the video ends
         const onVideoEnd = () => {
-            introContainer.classList.remove('visible'); // Fade out video
+            introContainer.classList.remove('visible');
             
             setTimeout(() => {
-                aboutView.classList.remove('hidden'); // Fade in the about section
-            }, 500); // Small delay to make the transition smoother
+                aboutView.classList.remove('hidden');
+            }, 500);
 
-            // IMPORTANT: Remove the listener to prevent it from firing again
             introVideo.removeEventListener('ended', onVideoEnd);
         };
 
         introVideo.addEventListener('ended', onVideoEnd, { once: true });
     }
 
-    // --- MODIFIED: Navigation click handler ---
     function handleNavClick(e) {
         e.preventDefault();
         const linkId = e.currentTarget.id;
 
-        // If the 'About' link is clicked, run the special video function
         if (linkId === 'about-link') {
             playAboutIntroAndShowView();
-            return; // Stop here for the about link
+            return;
         }
 
-        // --- Logic for all OTHER nav links ---
         document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
         e.currentTarget.classList.add('active');
 
@@ -493,12 +523,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 50);
     }
     
-    // Attach the unified click handler to all nav links
     document.querySelectorAll('.nav-link, #logo-link').forEach(link => {
         link.addEventListener('click', handleNavClick);
     });
 
-    // Initialize tooltips on page load
     createTooltip();
     setupTooltips();
 });

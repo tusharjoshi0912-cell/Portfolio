@@ -13,12 +13,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- ADDED: Warning for mobile users in standard browser mode -->
+    <div id="mobile-mode-warning" class="device-warning">
+        <div class="warning-content">
+            <h1>Attention</h1>
+            <p>This webpage has been made for laptops/desktops. You may see discrepancies like misalignment or layout issues. Please switch to "Desktop mode" in your browser to view it properly.</p>
+        </div>
+    </div>
+
+    <!-- ADDED: Warning for mobile users in portrait orientation -->
+    <div id="orientation-warning" class="device-warning">
+        <div class="warning-content">
+            <h1>Rotate Your Device</h1>
+            <p>This webpage has been made for laptops/desktops. You may see discrepancies like misalignment or layout issues. Please rotate your device to landscape orientation to view it properly.</p>
+        </div>
+    </div>
+
     <!-- About Section Intro Video Container -->
     <div id="intro-container">
         <video id="intro-video" src="https://github.com/tusharjoshi0912-cell/Portfolio/releases/download/intro-video-1/intro.mp4" playsinline></video>
     </div>
 
-    <!-- ADDED: Making Of Section Intro Video Container -->
+    <!-- Making Of Section Intro Video Container -->
     <div id="making-of-intro-container">
         <video id="making-of-intro-video" src="https://github.com/tusharjoshi0912-cell/Portfolio/releases/download/Netflix-intro-1/Netflix.intro.webm" playsinline></video>
     </div>
@@ -220,8 +236,6 @@
     </div>
 
     <script src="script.js"></script>
-    <!-- ADDED: Link to the new responsive script -->
-    <script src="responsive.js"></script>
 </body>
 </html>
 

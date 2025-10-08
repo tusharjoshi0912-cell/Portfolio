@@ -13,6 +13,48 @@
     --settle-easing: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* --- ADDED: Device Warning Styles --- */
+.device-warning {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000; /* Highest z-index */
+    background-color: #000000;
+    color: var(--text-light);
+    display: none; /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.device-warning.visible {
+    display: flex; /* Show the warning */
+}
+
+.warning-content {
+    max-width: 500px;
+}
+
+.warning-content h1 {
+    color: var(--netflix-red);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.warning-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Initially hide the main site wrapper for checks */
+#desktop-site-wrapper {
+    display: none;
+}
+
 /* --- INTRO VIDEO STYLES --- */
 #intro-container,
 #making-of-intro-container {
@@ -40,12 +82,6 @@
     object-fit: cover;
 }
 
-/* --- MAIN CONTENT VISIBILITY --- */
-#desktop-site-wrapper {
-    /* Site is visible by default now */
-    transition: opacity 1.2s ease-in;
-}
-
 
 body {
     background-color: var(--netflix-black);
@@ -54,61 +90,6 @@ body {
     margin: 0;
     overflow-x: hidden;
 }
-
-#mobile-warning-banner {
-    display: none; 
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #1a1a1a;
-    color: #fce100; 
-    padding: 10px 20px;
-    text-align: center;
-    z-index: 10000;
-    border-bottom: 2px solid #fce100;
-    box-shadow: 0 0 15px rgba(252, 225, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    animation: pulse-yellow 2s infinite;
-}
-
-#mobile-warning-banner i {
-    margin-right: 10px;
-}
-
-#mobile-warning-banner p {
-    margin: 0;
-    text-shadow: 
-        0 0 5px #fce100,
-        0 0 10px #fce100,
-        0 0 20px #ffdd00;
-}
-
-#close-banner-btn {
-    background: none;
-    border: none;
-    color: #fce100;
-    font-size: 1.5rem;
-    font-weight: bold;
-    cursor: pointer;
-    margin-left: 15px;
-    opacity: 0.8;
-    transition: opacity 0.2s;
-}
-
-#close-banner-btn:hover {
-    opacity: 1;
-}
-
-@keyframes pulse-yellow {
-    0% { box-shadow: 0 0 15px rgba(252, 225, 0, 0.5); }
-    50% { box-shadow: 0 0 25px rgba(252, 225, 0, 0.8); }
-    100% { box-shadow: 0 0 15px rgba(252, 225, 0, 0.5); }
-}
-
 
 /* Page Transition Styles */
 #main-content, #education-view, #skills-view, #about-view {
@@ -195,10 +176,6 @@ body {
     display: flex;
     align-items: center;
     gap: 25px;
-}
-
-.mobile-nav-toggle {
-    display: none;
 }
 
 .profile-icon {
@@ -865,188 +842,5 @@ body {
     color: var(--text-light);
     transform: translateY(-2px);
     text-shadow: 0 0 0.5px rgba(245, 245, 245, 0.5);
-}
-
-/* --- Mobile Nav Menu --- */
-.mobile-nav-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--netflix-black);
-    z-index: 5000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transform: translateY(-100%);
-    transition: transform 0.5s var(--smooth-ease);
-}
-
-.mobile-nav-menu.active {
-    transform: translateY(0);
-}
-
-.mobile-nav-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    text-align: center;
-}
-
-.mobile-nav-menu .nav-link {
-    font-size: 2rem;
-    margin: 20px 0;
-    display: block;
-}
-
-.mobile-nav-menu .nav-right {
-    margin-top: 40px;
-}
-
-
-/* --- Responsive Styles --- */
-@media (max-width: 768px) {
-    .main-nav .nav-left ul {
-        display: none;
-    }
-
-    .main-nav .nav-right {
-        display: none;
-    }
-
-    .mobile-nav-toggle {
-        display: block;
-        font-size: 1.5rem;
-        color: white;
-        background: none;
-        border: none;
-        cursor: pointer;
-        z-index: 5001;
-    }
-
-    .hero-section {
-        background-image: none; /* MODIFIED FOR MOBILE */
-        text-align: center;
-        padding-top: 0;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .hero-content {
-        max-width: 100%;
-    }
-    
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-content p {
-        font-size: 1rem;
-        max-width: 100%;
-    }
-
-    .hero-buttons {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .btn {
-        width: 80%;
-        justify-content: center;
-        margin-right: 0;
-    }
-
-    .content-rows {
-        margin-top: 5vh; /* Adjusted for no-hero-image layout */
-    }
-
-    .card {
-        min-width: 220px;
-        height: 124px;
-    }
-
-    #skills-view::before {
-        height: 45vh;
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
-
-    .timeline-container,
-    .skills-container,
-    .about-container {
-        padding-top: 120px;
-    }
-
-    .timeline-container h2,
-    .skills-container h2,
-    .about-container h2 {
-        font-size: 2.5rem;
-    }
-
-    .timeline-item {
-        padding-left: 40px;
-    }
-
-    .timeline-dot {
-        left: -9px;
-        width: 18px;
-        height: 18px;
-    }
-
-    .skills-grid-fullpage,
-    .about-cards-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .detail-intro-content,
-    .detail-sections-wrapper {
-        max-width: 95%;
-    }
-    
-    .detail-intro-content h1 {
-        font-size: 3rem;
-    }
-
-    /* --- COMPLETE MOBILE TOUCH FIX --- */
-    /* Prevents containers and their content in the Skills & About sections 
-       from scaling, moving, or changing styles on tap-and-hold. */
-
-    /* Target the main card containers */
-    .skill-card-fullpage:active, .skill-card-fullpage:hover,
-    .about-card:active, .about-card:hover {
-        transform: none !important;
-        box-shadow: none !important;
-    }
-
-    /* Specifically reset background for the about card */
-    .about-card:active, .about-card:hover {
-        background: rgba(34, 34, 34, 0.65) !important;
-    }
-    
-    /* Target the text elements inside the cards */
-    .skill-card-fullpage:active *, .skill-card-fullpage:hover *,
-    .about-card:active *, .about-card:hover * {
-        transform: none !important;
-        text-shadow: none !important;
-    }
-    
-    /* Reset text colors to their original state */
-    .skill-card-fullpage:active h4, .skill-card-fullpage:hover h4,
-    .about-card:active h3, .about-card:hover h3,
-    .about-card:active h4, .about-card:hover h4 {
-        color: var(--text-light) !important;
-    }
-
-    .skill-card-fullpage:active p, .skill-card-fullpage:hover p {
-        color: var(--text-grey) !important;
-    }
-    
-    .about-card:active p, .about-card:hover p {
-        color: #e5e5e5 !important;
-    }
 }
 
