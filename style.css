@@ -49,6 +49,23 @@
     color: #FFF;
     font-size: 1.1rem;
     line-height: 1.6;
+    margin-bottom: 1em; /* Add some space between paragraphs */
+}
+
+/* NEW: Style for the desktop icon and "To continue" message */
+.desktop-icon-message {
+    color: var(--netflix-red); /* Make the text and icon red */
+    font-size: 1.3rem; /* Slightly larger font */
+    font-weight: bold; /* Make it bold for emphasis */
+    margin: 1.5em 0; /* More vertical space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Space between icon and text */
+}
+
+.desktop-icon-message .fas.fa-desktop {
+    font-size: 1.8rem; /* Larger icon size */
 }
 
 .warning-content strong {
