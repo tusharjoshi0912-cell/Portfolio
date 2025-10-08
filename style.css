@@ -13,16 +13,16 @@
     --settle-easing: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* --- ADDED: Device Warning Styles --- */
+/* --- UPDATED: Device Warning Styles --- */
 .device-warning {
     position: fixed;
     inset: 0;
     width: 100%;
     height: 100%;
-    z-index: 10000; /* Highest z-index */
+    z-index: 10000;
     background-color: #000000;
     color: var(--text-light);
-    display: none; /* Hidden by default */
+    display: none; 
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -31,7 +31,7 @@
 }
 
 .device-warning.visible {
-    display: flex; /* Show the warning */
+    display: flex;
 }
 
 .warning-content {
@@ -46,9 +46,16 @@
 }
 
 .warning-content p {
-    font-size: 1.2rem;
+    color: #FFF;
+    font-size: 1.1rem;
     line-height: 1.6;
 }
+
+.warning-content strong {
+    color: var(--netflix-red);
+    font-weight: bold;
+}
+
 
 /* Initially hide the main site wrapper for checks */
 #desktop-site-wrapper {

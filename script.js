@@ -1,37 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- ADDED: Device and Orientation Check ---
+    // --- UPDATED: Device and Orientation Check ---
     const mobileWarning = document.getElementById('mobile-mode-warning');
-    const orientationWarning = document.getElementById('orientation-warning');
     const siteWrapper = document.getElementById('desktop-site-wrapper');
 
     function checkDeviceState() {
-        // This regex is a common way to detect if the user agent string belongs to a mobile device.
+        // This regex detects if the user agent string belongs to a mobile device.
         const isMobileUserAgent = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        
-        // This media query checks if the device's current orientation is portrait.
-        const isPortrait = window.matchMedia("(orientation: portrait)").matches;
         
         // This is a heuristic: If the user agent does NOT say it's mobile, we assume it's a desktop or a mobile in "Desktop Site" mode.
         const isLikelyDesktopMode = !isMobileUserAgent;
 
         if (isMobileUserAgent) {
             // STATE 1: User is on a mobile device using a standard mobile browser.
-            // Show the first warning and hide the site.
+            // Show the warning and hide the site.
             mobileWarning.classList.add('visible');
-            orientationWarning.classList.remove('visible');
-            siteWrapper.style.display = 'none';
-        } else if (isPortrait && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-            // STATE 2: User is likely on mobile in "Desktop Site" mode, but is holding the device vertically.
-            // Show the rotation warning and hide the site.
-            mobileWarning.classList.remove('visible');
-            orientationWarning.classList.add('visible');
             siteWrapper.style.display = 'none';
         } else {
-            // STATE 3: User is on a desktop, or on a mobile device in landscape mode.
-            // This is the desired state. Hide all warnings and show the site.
+            // STATE 2: User is on a desktop or in desktop mode on mobile.
+            // This is the desired state. Hide the warning and show the site.
             mobileWarning.classList.remove('visible');
-            orientationWarning.classList.remove('visible');
             siteWrapper.style.display = 'block';
         }
     }
@@ -39,10 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Run the check as soon as the page loads.
     checkDeviceState();
 
-    // Add an event listener to re-run the check whenever the device orientation changes.
+    // Re-run the check on resize. This helps if a user switches to/from desktop mode without reloading.
     window.addEventListener('resize', checkDeviceState);
-    window.addEventListener('orientationchange', checkDeviceState);
-
 
     // --- Existing Portfolio Logic (Unaffected) ---
 
@@ -250,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Forage Virtual Experience Programs",
             description: "Completed job simulations in key corporate functions, gaining practical insights into real-world tasks at leading global companies.",
              projectLinks: [
-                { name: 'View Deloitte Certificate', url: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_LHKgREX7Nh9s9umRi_1749738556611_completion_certificate.pdf' },
+                { name: 'View Deloitte Certificate', url: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_LHKgREX7Nh9s9umRi_1749738556611_completion-certificate.pdf' },
                 { name: 'View GE Aerospace Certificate', url: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ay2tsYxaTif7Nt6z7/bAPubTkawzGexc6TT_ay2tsYxaTif7Nt6z7_LHKgREX7Nh9s9umRi_1749653966396_completion_certificate.pdf' },
                 { name: 'View BCG Certificate 1', url: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/SKZxezskWgmFjRvj9/4Rfzeut8gXmNwfxXv_SKZxezskWgmFjRvj9_LHKgREX7Nh9s9umRi_1750346618641_completion_certificate.pdf' },
                 { name: 'View BCG Certificate 2', url: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/SKZxezskWgmFjRvj9/ntTvo6ru6Tq3A2JPq_SKZxezskWgmFjRvj9_LHKgREX7Nh9s9umRi_1750776823883_completion_certificate.pdf' }
@@ -279,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "CITI Program Certifications",
             description: "Certified in the foundational principles of ethical research, ensuring compliance and integrity in academic and professional studies.",
              projectLinks: [
-                { name: 'Verify Conduct of Research Cert.', url: 'https://www.citiprogram.org/verify/?weac6cc34-9148-4e66-a372-7ca0033ad88b-66728301' },
+                { name: 'Verify Conduct of Research Cert.', url: 'https://www.citiprogram.org/verify/?weac6cc34-9148-4e66-a3_72-7ca0033ad88b-66728301' },
                 { name: 'Verify SBE Research Cert.', url: 'https://www.citiprogram.org/verify/?wc2ec2ad4-1dd7-4b32-9990-d4986cf29692-66728302' },
                 { name: 'Verify Conflicts of Interest Cert.', url: 'https://www.citiprogram.org/verify/?wd0c83cf2-e344-46f8-81ce-659104b0deec-66728303' }
             ],
