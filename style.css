@@ -13,6 +13,40 @@
     --settle-easing: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* --- INTRO VIDEO STYLES --- */
+#intro-container,
+#making-of-intro-container {
+    position: fixed;
+    inset: 0; /* A shorthand for top, right, bottom, left: 0 */
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: #000;
+    opacity: 0; /* Start hidden */
+    pointer-events: none; /* Start non-interactive */
+    transition: opacity 0.5s ease-out; /* Faster transition for better UX */
+}
+
+#intro-container.visible,
+#making-of-intro-container.visible {
+    opacity: 1;
+    pointer-events: auto; /* Make it interactive when visible */
+}
+
+#intro-video,
+#making-of-intro-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- MAIN CONTENT VISIBILITY --- */
+#desktop-site-wrapper {
+    /* Site is visible by default now */
+    transition: opacity 1.2s ease-in;
+}
+
+
 body {
     background-color: var(--netflix-black);
     color: var(--text-light);
@@ -1015,3 +1049,4 @@ body {
         color: #e5e5e5 !important;
     }
 }
+

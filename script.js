@@ -1,4 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Get all necessary elements from the DOM ---
+    const mainContent = document.getElementById('main-content');
+    const detailViewContainer = document.getElementById('detail-view-container');
+    const mainPageCards = document.querySelectorAll('#main-content .card');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const educationView = document.getElementById('education-view');
+    const skillsView = document.getElementById('skills-view');
+    const aboutView = document.getElementById('about-view');
+    const introContainer = document.getElementById('intro-container');
+    const introVideo = document.getElementById('intro-video');
+    const makingOfIntroContainer = document.getElementById('making-of-intro-container');
+    const makingOfIntroVideo = document.getElementById('making-of-intro-video');
+
+    let tooltip = null; 
+    let scrollPosition = 0;
+
     // --- Data for all portfolio items ---
     const portfolioData = {
         gsa: {
@@ -256,16 +272,41 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
     
-    const mainContent = document.getElementById('main-content');
-    const detailViewContainer = document.getElementById('detail-view-container');
-    const mainPageCards = document.querySelectorAll('#main-content .card');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const educationView = document.getElementById('education-view');
-    const skillsView = document.getElementById('skills-view');
-    const aboutView = document.getElementById('about-view');
-    let tooltip = null; 
-    let scrollPosition = 0;
+    // --- MODIFIED: This is the function that now handles showing the detail view, with or without a video ---
+    function openProject(id) {
+        // Special case for 'makingOf' project: play video first
+        if (id === 'makingOf') {
+            playMakingOfIntroAndShowDetail(id);
+        } else {
+            // For all other projects, show the detail view directly
+            showDetailView(id);
+        }
+    }
 
+    // --- NEW: Function specifically for the 'makingOf' video intro ---
+    function playMakingOfIntroAndShowDetail(id) {
+        mainContent.classList.add('hidden');
+        makingOfIntroContainer.classList.add('visible');
+        makingOfIntroVideo.currentTime = 0;
+
+        makingOfIntroVideo.play().then(() => {
+            makingOfIntroVideo.muted = false;
+        }).catch(error => {
+            console.error("Error playing 'Making Of' video:", error);
+            makingOfIntroContainer.classList.remove('visible');
+            showDetailView(id); // Fallback to showing content directly
+        });
+
+        const onVideoEnd = () => {
+            makingOfIntroContainer.classList.remove('visible');
+            setTimeout(() => {
+                showDetailView(id);
+            }, 500);
+            makingOfIntroVideo.removeEventListener('ended', onVideoEnd);
+        };
+        makingOfIntroVideo.addEventListener('ended', onVideoEnd, { once: true });
+    }
+    
     function showDetailView(id) {
         scrollPosition = window.scrollY;
         
@@ -371,28 +412,76 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // MODIFIED: Simplified the card click listener to use the new openProject function
     mainPageCards.forEach(card => {
         card.addEventListener('click', () => {
             const dataId = card.getAttribute('data-id');
-            showDetailView(dataId);
+            openProject(dataId); // Use the new handler function
         });
     });
 
+    // --- Function to play the intro video and then show the about section ---
+    function playAboutIntroAndShowView() {
+        // Hide all other sections first
+        mainContent.classList.add('hidden');
+        educationView.classList.add('hidden');
+        skillsView.classList.add('hidden');
+        aboutView.classList.add('hidden'); // Ensure about view is hidden initially
+        detailViewContainer.innerHTML = '';
+
+        // Update active nav link
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        document.getElementById('about-link').classList.add('active');
+
+        // Make the video container visible and play the video
+        introContainer.classList.add('visible');
+        introVideo.currentTime = 0; // Rewind the video to the start
+
+        introVideo.play().then(() => {
+            introVideo.muted = false; // Attempt to unmute after play starts
+        }).catch(error => {
+            console.error("Error attempting to play video:", error);
+            // If play fails, hide video and show the section immediately as a fallback
+            introContainer.classList.remove('visible');
+            aboutView.classList.remove('hidden');
+        });
+
+        // Add a one-time listener for when the video ends
+        const onVideoEnd = () => {
+            introContainer.classList.remove('visible'); // Fade out video
+            
+            setTimeout(() => {
+                aboutView.classList.remove('hidden'); // Fade in the about section
+            }, 500); // Small delay to make the transition smoother
+
+            // IMPORTANT: Remove the listener to prevent it from firing again
+            introVideo.removeEventListener('ended', onVideoEnd);
+        };
+
+        introVideo.addEventListener('ended', onVideoEnd, { once: true });
+    }
+
+    // --- MODIFIED: Navigation click handler ---
     function handleNavClick(e) {
         e.preventDefault();
         const linkId = e.currentTarget.id;
 
+        // If the 'About' link is clicked, run the special video function
+        if (linkId === 'about-link') {
+            playAboutIntroAndShowView();
+            return; // Stop here for the about link
+        }
+
+        // --- Logic for all OTHER nav links ---
         document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
         e.currentTarget.classList.add('active');
 
-        // Hide all views first
         mainContent.classList.add('hidden');
         educationView.classList.add('hidden');
         skillsView.classList.add('hidden');
         aboutView.classList.add('hidden');
-        detailViewContainer.innerHTML = ''; // Clear detail view
+        detailViewContainer.innerHTML = '';
 
-        // Use a tiny timeout to allow the exit animation to start before the enter animation
         setTimeout(() => {
             if (linkId === 'home-link' || linkId === 'logo-link') {
                 mainContent.classList.remove('hidden');
@@ -400,16 +489,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 educationView.classList.remove('hidden');
             } else if (linkId === 'skills-link') {
                 skillsView.classList.remove('hidden');
-            } else if (linkId === 'about-link') {
-                aboutView.classList.remove('hidden');
             }
-        }, 50); // A small delay is enough
+        }, 50);
     }
     
+    // Attach the unified click handler to all nav links
     document.querySelectorAll('.nav-link, #logo-link').forEach(link => {
         link.addEventListener('click', handleNavClick);
     });
 
+    // Initialize tooltips on page load
     createTooltip();
     setupTooltips();
 });
